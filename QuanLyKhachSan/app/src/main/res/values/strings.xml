@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">QuanLyKhachSan</string>
+    <string name="home">Trang chủ</string>
+    <string name="inputAcount">Tài khoản</string>
+    <string name="inputPassword">Mật khẩu</string>
+    <string name="btnlogin">Đăng nhập</string>
 </resources>
