@@ -11,6 +11,5 @@ public class LoginFragment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.login_fragment);
-//        
     }
 }
