@@ -5,6 +5,7 @@
     <string name="inputPassword">Mật khẩu</string>
 
     <string name="btnlogin">Đăng nhập</string>
+    <string name="lblHotelName">Tên khách sạn</string>
     <string name="nameRoom">Phòng 002</string>
     <string name="lblname">Tên</string>
     <string name="lblPhone">SĐT</string>

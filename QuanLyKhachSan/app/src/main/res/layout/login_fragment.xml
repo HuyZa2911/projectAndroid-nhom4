@@ -21,6 +21,9 @@
             android:textColor="@color/colorPrimary"
             android:text="QLKS"
             android:textStyle="bold"
+            android:textSize="100px"
+
+            />
             android:textSize="100px"/>
         <TextView
             android:textStyle="italic"
