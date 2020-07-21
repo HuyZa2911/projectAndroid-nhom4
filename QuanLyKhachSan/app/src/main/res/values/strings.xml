@@ -3,5 +3,29 @@
     <string name="home">Trang chủ</string>
     <string name="inputAcount">Tài khoản</string>
     <string name="inputPassword">Mật khẩu</string>
+
     <string name="btnlogin">Đăng nhập</string>
+    <string name="nameRoom">Phòng 002</string>
+    <string name="lblname">Tên</string>
+    <string name="lblPhone">SĐT</string>
+    <string name="lblBokkingType">Đặt theo</string>
+    <string name="lblPassport">CMND</string>
+    <string name="radBookingday">Ngày</string>
+    <string name="radBookingHours">Giờ</string>
+    <string name="lblPrice">Giá</string>
+    <string name="lblTimeBooking">Ngày Thuê</string>
+    <string name="lblCheckInDay">Ngày nhận phòng</string>
+    <string name="lblCheckoutDay">Ngày trả phòng</string>
+    <string name="lblTotalDay">Số ngày thuê</string>
+    <string name="lblTotalHours">Số Giờ thuê</string>
+    <string name="lblOther">Other</string>
+    <string name="lblMonyRoom">Tiền phòng</string>
+    <string name="lblTotalMoney">Tổng tiền</string>
+    <string name="hintTimeIn">Giờ đến</string>
+    <string name="hintTimeOut">Giờ đi</string>
+    <string name="hintSelect">Nhấn dể chọn</string>
+
+    <string name="btnCancel">Hủy</string>
+    <string name="btnConfirm">Xác nhận</string>
+    <string name="btnPayMoney">Thanh toán</string>
 </resources>

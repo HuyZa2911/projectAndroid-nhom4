@@ -11,16 +11,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <TextView
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
             android:text="QLKS"
             android:textStyle="bold"
             android:textSize="100px"/>
+        <TextView
+            android:textStyle="italic"
+            android:text="Đăt phòng trong một nốt nhạc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
@@ -28,8 +34,8 @@
 
         <EditText
             style="@style/inputText"
-
-            android:hint="@string/inputAcount"></EditText>
+            android:id="@+id/etAcount"
+            android:hint="@string/inputAcount"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etPasswordLayout"
@@ -50,11 +56,11 @@
            android:layout_height="match_parent"
            android:gravity="center_horizontal">
            <Button
+               android:id="@+id/btnLogin"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="@string/btnlogin" />
        </LinearLayout>
     </LinearLayout>
-
 
 </LinearLayout>
