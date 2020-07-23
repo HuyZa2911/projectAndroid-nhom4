@@ -18,9 +18,9 @@ public class LoginFragment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.login_fragment);
-      btnLogin = findViewById(R.id.btnLogin);
-        btnClickLogin();
+        setContentView(R.layout.control_hotel_background);
+//      btnLogin = findViewById(R.id.btnLogin);
+//        btnClickLogin();
 
 // Write a message to the database
 
