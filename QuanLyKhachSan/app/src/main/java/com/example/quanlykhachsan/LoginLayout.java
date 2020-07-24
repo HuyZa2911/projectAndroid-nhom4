@@ -24,8 +24,6 @@ public class LoginLayout extends AppCompatActivity {
 
         btnClickLogin();
 
-// Write a message to the database
-
     }
 
     private void btnClickLogin() {
