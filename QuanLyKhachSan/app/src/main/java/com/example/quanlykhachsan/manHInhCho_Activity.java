@@ -5,6 +5,8 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.quanlykhachsan.models_data.KhachHang;
+
 import java.util.ArrayList;
 
 public class manHInhCho_Activity extends AppCompatActivity {
@@ -14,20 +16,20 @@ public class manHInhCho_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview_man_hinh_cho_layout);
         lvKhachHang = (ListView) findViewById(R.id.lvKhachHang);
-        ArrayList<Customer> arrCustomer = new ArrayList<>();
-        Customer customer1 = new Customer(1 ,"Nguyen Van A", "123456", "12/5/2002", "12/8/2019", "so 4 Thu Duc",
+        ArrayList<KhachHang> arrCustomer = new ArrayList<>();
+        KhachHang customer1 = new KhachHang(1 ,"Nguyen Van A", "123456", "12/5/2002", "12/8/2019", "so 4 Thu Duc",
                 8);
-        Customer customer2 = new Customer(2 ,"Nguyen Van B", "123456", "12/5/2002", "12/8/2019", "so 4 Tu Duc",
+        KhachHang customer2 = new KhachHang(2 ,"Nguyen Van B", "123456", "12/5/2002", "12/8/2019", "so 4 Tu Duc",
                 8);
-        Customer customer3 = new Customer(3,"Nguyen Van An", "123456", "12/5/2003", "12/8/2019", "so 4 Thu Duc",
+        KhachHang customer3 = new KhachHang(3,"Nguyen Van An", "123456", "12/5/2003", "12/8/2019", "so 4 Thu Duc",
                 8);
-        Customer customer4 = new Customer(4,"Nguyen Van Anh", "123456", "12/5/2001", "12/8/2019", "so 4 Thu",
+        KhachHang customer4 = new KhachHang(4,"Nguyen Van Anh", "123456", "12/5/2001", "12/8/2019", "so 4 Thu",
                 8);
-        Customer customer5 = new Customer(5,"Nguyen Van D", "123456", "12/5/2002", "12/8/2019", "so 4 Tan Duc",
+        KhachHang customer5 = new KhachHang(5,"Nguyen Van D", "123456", "12/5/2002", "12/8/2019", "so 4 Tan Duc",
                 8);
-        Customer customer6 = new Customer(6,"Nguyen Van E", "123456", "12/5/2002", "12/8/2019", "so 4 Thu Duc",
+        KhachHang customer6 = new KhachHang(6,"Nguyen Van E", "123456", "12/5/2002", "12/8/2019", "so 4 Thu Duc",
                 8);
-        Customer customer7 = new Customer(7,"Nguyen Van F", "123456", "12/5/2002", "12/8/2019", "so 4 Thu Duc",
+        KhachHang customer7 = new KhachHang(7,"Nguyen Van F", "123456", "12/5/2002", "12/8/2019", "so 4 Thu Duc",
                 8);
 
         arrCustomer.add(customer1);
