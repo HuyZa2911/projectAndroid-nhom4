@@ -19,10 +19,7 @@ public class LoginLayout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.login_layout);
-
-        btnLogin = findViewById(R.id.btnLogin);
-
-        btnClickLogin();
+        
 
     }
 
