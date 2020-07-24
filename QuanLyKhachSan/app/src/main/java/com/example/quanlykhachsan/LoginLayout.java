@@ -19,17 +19,8 @@ public class LoginLayout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.login_layout);
-        
+
 
     }
 
-    private void btnClickLogin() {
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(LoginLayout.this, HomeAdminLayout.class);
-                startActivity(intent);
-            }
-        });
-    }
 }
