@@ -11,17 +11,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.quanlykhachsan.Data.KhachHang;
-
-public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
+public class KhachHangAdapter extends ArrayAdapter<Customer> {
     private Context context;
     private int resource;
-    private List<KhachHang> arrKhachHang;
-    public KhachHangAdapter(Context context, int resource, ArrayList<KhachHang> arrKhachHang) {
-        super(context, resource, arrKhachHang);
+    private List<Customer> arrCustomer;
+    public KhachHangAdapter(Context context, int resource, ArrayList<Customer> arrCustomer) {
+        super(context, resource, arrCustomer);
         this.context = context;
         this.resource = resource;
-        this.arrKhachHang = arrKhachHang;
+        this.arrCustomer = arrCustomer;
     }
     public class ViewHolder{
         private EditText edtTen;
@@ -52,15 +50,15 @@ public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
         }else {
             viewHold = (ViewHolder) convertView.getTag();
         }
-        KhachHang khachHang =  arrKhachHang.get(position);
+        Customer customer =  arrCustomer.get(position);
 
-        viewHold.tvIdPhong.setText(String.valueOf(khachHang.getIdPhong()) );
-        viewHold.edtTen.setText(khachHang.getHoTen());
-        viewHold.edtDiaChi.setText(khachHang.getDiaChi());
-        viewHold.edtSDT.setText(khachHang.getSdt());
-        viewHold.edtSoGioThue.setText(String.valueOf(khachHang.getSoGioThue()));
-        viewHold.edtNgayTra.setText((CharSequence) khachHang.getNgayTra());
-        viewHold.edtNgayThue.setText((CharSequence) khachHang.getNgayThue());
+        viewHold.tvIdPhong.setText(String.valueOf(customer.getIdPhong()) );
+        viewHold.edtTen.setText(customer.getHoTen());
+        viewHold.edtDiaChi.setText(customer.getDiaChi());
+        viewHold.edtSDT.setText(customer.getSdt());
+        viewHold.edtSoGioThue.setText(String.valueOf(customer.getSoGioThue()));
+        viewHold.edtNgayTra.setText((CharSequence) customer.getNgayTra());
+        viewHold.edtNgayThue.setText((CharSequence) customer.getNgayThue());
         return convertView;
 
 
