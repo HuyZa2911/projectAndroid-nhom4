@@ -21,6 +21,13 @@ public class LoginLayout extends AppCompatActivity {
         setContentView(R.layout.login_layout);
 
 
-    }
 
+    private void btnClickLogin() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               
+            }
+        });
+    }
 }
