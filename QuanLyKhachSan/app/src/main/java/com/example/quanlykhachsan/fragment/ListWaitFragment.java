@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.quanlykhachsan.Data.KhachHang;
 import com.example.quanlykhachsan.KhachHangAdapter;
 import com.example.quanlykhachsan.R;
+import com.example.quanlykhachsan.models_data.KhachHang;
 
 import java.util.ArrayList;
 
@@ -41,7 +41,7 @@ public class ListWaitFragment extends Fragment {
                 false);
         lvKhachHang = rootView.findViewById(R.id.lvKhachHang);
 
-        ArrayList<KhachHang> arrKhachHang = new ArrayList<>();
+        ArrayList<KhachHang> arrKhachHang = new ArrayList<KhachHang>();
         KhachHang khachHang1 = new KhachHang(1 ,"Nguyen Van A", "123456", "12/5/2002", "12/8/2019", "so 4 Thu Duc",
                 8);
         KhachHang khachHang2 = new KhachHang(2 ,"Nguyen Van B", "123456", "12/5/2002", "12/8/2019", "so 4 Tu Duc",
