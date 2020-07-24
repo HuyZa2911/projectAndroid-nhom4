@@ -27,8 +27,7 @@ public class LoginLayout extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(LoginLayout.this, HomeAdminLayout.class);
-                startActivity(intent);
+               
             }
         });
     }
