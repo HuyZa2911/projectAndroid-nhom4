@@ -9,7 +9,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class LoginFragment extends AppCompatActivity {
+public class LoginLayout extends AppCompatActivity {
     Button btnLogin;
     Intent intent;
     EditText etAcount, etPassword;
@@ -18,7 +18,7 @@ public class LoginFragment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.login_fragment);
+        setContentView(R.layout.login_layout);
 
         btnLogin = findViewById(R.id.btnLogin);
 
@@ -32,7 +32,7 @@ public class LoginFragment extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(LoginFragment.this, TestDialog.class);
+                intent = new Intent(LoginLayout.this, HomeAdminLayout.class);
                 startActivity(intent);
             }
         });
