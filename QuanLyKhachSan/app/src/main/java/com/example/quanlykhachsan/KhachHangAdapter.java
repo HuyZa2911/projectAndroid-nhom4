@@ -36,7 +36,7 @@ public class KhachHangAdapter extends ArrayAdapter<Customer> {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHold;
         if(convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.man_hinh_cho_layout, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.fragment_item_wait, parent, false);
             viewHold = new ViewHolder();
             viewHold.tvIdPhong = (TextView) convertView.findViewById(R.id.tvIdPhong);
             viewHold.edtTen = (EditText) convertView.findViewById(R.id.edtTen);
