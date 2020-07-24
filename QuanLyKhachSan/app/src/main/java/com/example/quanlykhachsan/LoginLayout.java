@@ -8,8 +8,10 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.quanlykhachsan.fragment.HomeAdminFragment;
 
-public class LoginFragment extends AppCompatActivity {
+
+public class LoginLayout extends AppCompatActivity {
     Button btnLogin;
     Intent intent;
     EditText etAcount, etPassword;
@@ -18,11 +20,10 @@ public class LoginFragment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.control_hotel_background);
-//      btnLogin = findViewById(R.id.btnLogin);
-//        btnClickLogin();
+        setContentView(R.layout.login_layout);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnClickLogin();
 
-// Write a message to the database
 
     }
 
@@ -30,7 +31,7 @@ public class LoginFragment extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(LoginFragment.this, TestDialog.class);
+                intent = new Intent(LoginLayout.this, HomeAdminLayout.class);
                 startActivity(intent);
             }
         });

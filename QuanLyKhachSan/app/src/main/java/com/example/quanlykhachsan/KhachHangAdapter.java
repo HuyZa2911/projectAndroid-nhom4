@@ -8,14 +8,16 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.quanlykhachsan.models_data.KhachHang;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class KhachHangAdapter extends ArrayAdapter<Customer> {
+public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
     private Context context;
     private int resource;
-    private List<Customer> arrCustomer;
-    public KhachHangAdapter(Context context, int resource, ArrayList<Customer> arrCustomer) {
+    private List<KhachHang> arrCustomer;
+    public KhachHangAdapter(Context context, int resource, ArrayList<KhachHang> arrCustomer) {
         super(context, resource, arrCustomer);
         this.context = context;
         this.resource = resource;
@@ -36,7 +38,7 @@ public class KhachHangAdapter extends ArrayAdapter<Customer> {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHold;
         if(convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.man_hinh_cho_layout, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.fragment_item_wait, parent, false);
             viewHold = new ViewHolder();
             viewHold.tvIdPhong = (TextView) convertView.findViewById(R.id.tvIdPhong);
             viewHold.edtTen = (EditText) convertView.findViewById(R.id.edtTen);
@@ -50,7 +52,7 @@ public class KhachHangAdapter extends ArrayAdapter<Customer> {
         }else {
             viewHold = (ViewHolder) convertView.getTag();
         }
-        Customer customer =  arrCustomer.get(position);
+        KhachHang customer =  arrCustomer.get(position);
 
         viewHold.tvIdPhong.setText(String.valueOf(customer.getIdPhong()) );
         viewHold.edtTen.setText(customer.getHoTen());

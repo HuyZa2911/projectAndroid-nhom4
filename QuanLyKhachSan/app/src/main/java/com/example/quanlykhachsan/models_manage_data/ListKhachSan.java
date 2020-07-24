@@ -12,19 +12,19 @@ public class ListKhachSan {
         return listKhachSan;
     }
 
-    public void updateKhachSan(KhachSan khachSan) {
-        for (KhachSan khachSan1 : listKhachSan) {
-            if (khachSan1.getIdKhachSan() == khachSan.getIdKhachSan()) {
-                for (Phong phong : khachSan.getArrayListPhong()) {
-                    khachSan1.setArrayListPhong(phong);
-                }
-                khachSan1.setDiaChi(khachSan.getDiaChi());
-                khachSan1.setLoaiKS(khachSan.getLoaiKS());
-                khachSan1.setTenKS(khachSan.getTenKS());
-                break;
-            }
-        }
-    }
+//    public void updateKhachSan(KhachSan khachSan) {
+//        for (KhachSan khachSan1 : listKhachSan) {
+//            if (khachSan1.getIdKhachSan() == khachSan.getIdKhachSan()) {
+//                for (Phong phong : khachSan.getArrayListPhong()) {
+//                    khachSan1.setArrayListPhong(phong);
+//                }
+//                khachSan1.setDiaChi(khachSan.getDiaChi());
+//                khachSan1.setLoaiKS(khachSan.getLoaiKS());
+//                khachSan1.setTenKS(khachSan.getTenKS());
+//                break;
+//            }
+//        }
+//    }
 
     public void deleteKhachSan(KhachSan khachSan) {
         for (KhachSan khachSan1 : listKhachSan) {
