@@ -6,6 +6,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlykhachsan.Data.KhachHang;
+import com.example.quanlykhachsan.Data.KhachHangAdapter;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.quanlykhachsan;
+package com.example.quanlykhachsan.Data;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.quanlykhachsan.Data.KhachHang;
+import com.example.quanlykhachsan.R;
 
 public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
     private Context context;

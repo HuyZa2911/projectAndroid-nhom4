@@ -24,7 +24,6 @@
                 android:gravity="center"
                 android:text="Phong"
                 android:textColor="@color/colorPrimary"></TextView>
-
         </LinearLayout>
 
         <LinearLayout
