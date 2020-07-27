@@ -65,4 +65,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">2.5</item>
     </style>
+    <style name="layout_home_list">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="customRatingBar"
+        parent="android:style/Widget.Material.RatingBar.Small">
+
+    </style>
 </resources>
