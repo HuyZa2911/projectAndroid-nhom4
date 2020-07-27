@@ -7,10 +7,10 @@
 
 
     <LinearLayout
-    android:layout_width="match_parent"
+        android:id="@+id/layout_user"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
-        android:id="@+id/layout_admin"
         android:orientation="vertical">
 
 
@@ -18,9 +18,9 @@
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_hotelier_navagition_admin"
+        android:id="@+id/bottom_hotelier_navagition_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:labelVisibilityMode="auto"
-        app:menu="@menu/menu_hotelier_layout" />
+        app:menu="@menu/menu_book_room_layout" />
 </LinearLayout>

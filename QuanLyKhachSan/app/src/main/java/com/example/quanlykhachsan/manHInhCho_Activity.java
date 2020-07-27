@@ -5,6 +5,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.quanlykhachsan.adpter.KhachHangAdapter;
 import com.example.quanlykhachsan.models_data.KhachHang;
 
 import java.util.ArrayList;

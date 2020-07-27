@@ -1,4 +1,4 @@
-package com.example.quanlykhachsan;
+package com.example.quanlykhachsan.adpter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.quanlykhachsan.R;
 import com.example.quanlykhachsan.models_data.KhachHang;
 
 import java.util.ArrayList;
