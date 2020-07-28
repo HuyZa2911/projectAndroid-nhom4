@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.quanlykhachsan.KhachHangAdapter;
+import com.example.quanlykhachsan.adpter.KhachHangAdapter;
 import com.example.quanlykhachsan.R;
 import com.example.quanlykhachsan.models_data.KhachHang;
 
@@ -66,7 +66,7 @@ public class ListWaitFragment extends Fragment {
         arrKhachHang.add(khachHang7);
         KhachHangAdapter khachHangAdapter = new KhachHangAdapter(context,R.layout.fragment_item_list_wait,arrKhachHang);
 
-        lvKhachHang.setAdapter(khachHangAdapter);
+            lvKhachHang.setAdapter(khachHangAdapter);
         return rootView;
     }
 }

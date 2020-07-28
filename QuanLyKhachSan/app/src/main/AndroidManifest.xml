@@ -19,6 +19,7 @@
         <activity android:name=".TestDialog" />
         <activity android:name=".manHInhCho_Activity" />
         <activity android:name=".HomeAdminLayout"/>
+        <activity android:name=".HomeUserLayout"/>
     </application>
 
 </manifest>
