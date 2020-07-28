@@ -12,33 +12,34 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
             android:text="QLKS"
-            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             android:textSize="100px"
+            android:textStyle="bold"
 
             />
-            android:textSize="100px"/>
+        android:textSize="100px"/>
+
         <TextView
-            android:textStyle="italic"
-            android:text="Đăt phòng trong một nốt nhạc"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Đăt phòng trong một nốt nhạc"
+            android:textStyle="italic" />
 
     </LinearLayout>
 
     <LinearLayout style="@style/editTextAcount">
 
         <EditText
-            style="@style/inputText"
             android:id="@+id/etAcount"
-            android:hint="@string/inputAcount"/>
+            style="@style/inputText"
+            android:hint="@string/inputAcount" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etPasswordLayout"
@@ -48,23 +49,46 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                style="@style/inputText"
-                android:imeOptions="actionDone"
-                android:hint="@string/inputPassword"
                 android:id="@+id/etPassword"
-                android:inputType="textPassword"/>
+                style="@style/inputText"
+                android:hint="@string/inputPassword"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:gravity="center_horizontal">
-           <Button
-               android:textAllCaps="false"
-               android:id="@+id/btnLogin"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/btnlogin" />
-       </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnlogin"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lblNoAcount" />
+
+                <TextView
+                    android:id="@+id/lblRegistration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:text="@string/lblRegistration"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

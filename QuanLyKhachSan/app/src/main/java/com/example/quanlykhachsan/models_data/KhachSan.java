@@ -1,22 +1,36 @@
 package com.example.quanlykhachsan.models_data;
 
-import com.example.quanlykhachsan.models_manage_data.ListPhong;
-
-import java.util.ArrayList;
-
 public class KhachSan {
-    private int idKhachSan;
-
+    private String idChuKS;
     private String tenKS;
     private String diaChi;
-    private int loaiKS;
+    private int nuberRoom;
+    private int phone;
 
-    public int getIdKhachSan() {
-        return idKhachSan;
+    public int getNuberRoom() {
+        return nuberRoom;
     }
 
-    public void setIdKhachSan(int idKhachSan) {
-        this.idKhachSan = idKhachSan;
+    public void setNuberRoom(int nuberRoom) {
+        this.nuberRoom = nuberRoom;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    private int loaiKS;
+
+    public String getIdChuKS() {
+        return idChuKS;
+    }
+
+    public void setIdChuKS(String idChuKS) {
+        this.idChuKS = idChuKS;
     }
 
     public String getTenKS() {
@@ -43,10 +57,15 @@ public class KhachSan {
         this.loaiKS = loaiKS;
     }
 
-    public KhachSan(int idKhachSan, String tenKS, String diaChi, int loaiKS) {
-        this.idKhachSan = idKhachSan;
+    public KhachSan() {
+    }
+
+    public KhachSan(String idChuKS, String tenKS, String diaChi, int loaiKS,int phone,int numberRoom) {
+        this.idChuKS = idChuKS;
         this.tenKS = tenKS;
         this.diaChi = diaChi;
         this.loaiKS = loaiKS;
+        this.phone = phone;
+        this.nuberRoom =numberRoom;
     }
 }

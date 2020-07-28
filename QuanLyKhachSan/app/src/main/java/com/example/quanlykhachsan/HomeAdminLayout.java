@@ -16,22 +16,36 @@ import com.example.quanlykhachsan.fragment.HomeAdminFragment;
 import com.example.quanlykhachsan.fragment.InformationFragment;
 import com.example.quanlykhachsan.fragment.ListHottelFragment;
 import com.example.quanlykhachsan.fragment.ListWaitFragment;
+import com.example.quanlykhachsan.models_data.KhachSan;
+import com.example.quanlykhachsan.models_data.TaiKhoan;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeAdminLayout extends AppCompatActivity {
     LinearLayout layoutFragment;
     BottomNavigationView navMenu;
     Intent intent;
+    String idAcount,name,phone,email,diachi;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-            setContentView(R.layout.layout_admin);
-            navMenu = findViewById(R.id.bottom_hotelier_navagition_admin);
-            layoutFragment = findViewById(R.id.layout_admin);
-            swapContentFragment(HomeAdminFragment.newInstance(), true, R.id.layout_admin);
-            setMenuAdmin();
+        setContentView(R.layout.layout_admin);
+        navMenu = findViewById(R.id.bottom_hotelier_navagition_admin);
+        layoutFragment = findViewById(R.id.layout_admin);
+        setMenuAdmin();
+        intent = getIntent();
+        idAcount = intent.getStringExtra("id");
+        name = intent.getStringExtra("name");
+        phone= intent.getStringExtra("phone");
+        email= intent.getStringExtra("email");
 
+        swapContentFragment(HomeAdminFragment.newInstance(idAcount), true, R.id.layout_admin);
+//            DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+//             KhachSan ks = new KhachSan(idAcount,"abc","thu duc",4);
+//            database.child("khachsan").push().setValue(ks);
     }
 
     private void setMenuAdmin() {
@@ -40,7 +54,7 @@ public class HomeAdminLayout extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        swapContentFragment(HomeAdminFragment.newInstance(), true, R.id.layout_admin);
+                        swapContentFragment(HomeAdminFragment.newInstance(idAcount), true, R.id.layout_admin);
                         Toast.makeText(HomeAdminLayout.this, "home", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.manage_room:
@@ -51,7 +65,7 @@ public class HomeAdminLayout extends AppCompatActivity {
                         Toast.makeText(HomeAdminLayout.this, "Danh sách chờ", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.information:
-                        swapContentFragment(InformationFragment.newInstance(), true, R.id.layout_admin);
+                        swapContentFragment(InformationFragment.newInstance(name,phone,email), true, R.id.layout_admin);
                         Toast.makeText(HomeAdminLayout.this, "Thông tin", Toast.LENGTH_SHORT).show();
                         return true;
                     default:
@@ -62,23 +76,6 @@ public class HomeAdminLayout extends AppCompatActivity {
         });
     }
 
-    private void setMenuUser(){
-        navMenu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.home:
-                        swapContentFragment(ListHottelFragment.newInstance(), true, R.id.layout_user);
-                    return true;
-                    case R.id.search:
-                        Toast.makeText(HomeAdminLayout.this, "Tìm kiếm", Toast.LENGTH_SHORT).show();
-                    case R.id.history:
-                        Toast.makeText(HomeAdminLayout.this, "Thông tin", Toast.LENGTH_SHORT).show();
-                }
-                return false;
-            }
-        });
-    }
 
     private void swapContentFragment(final Fragment i_newFragment, final boolean i_addToStack, final int container) {
         final FragmentManager fm = getSupportFragmentManager();
