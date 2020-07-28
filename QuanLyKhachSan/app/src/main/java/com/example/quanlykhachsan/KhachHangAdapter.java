@@ -24,13 +24,9 @@ public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
         this.arrCustomer = arrCustomer;
     }
     public class ViewHolder{
-        private EditText edtTen;
-        private TextView tvIdPhong;
-        private EditText edtDiaChi;
-        private EditText edtNgayTra;
-        private EditText edtNgayThue;
-        private  EditText edtSDT;
-        private EditText edtSoGioThue;
+        private TextView lblTen,lblPhong,lblDiaChi,lblNgayTra,lblNgayThue,lblSdt,lblThoiGianThue,lblLoaiThue;
+
+
     }
 
 
@@ -40,13 +36,14 @@ public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
         if(convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.fragment_item_wait, parent, false);
             viewHold = new ViewHolder();
-            viewHold.tvIdPhong = (TextView) convertView.findViewById(R.id.tvIdPhong);
-            viewHold.edtTen = (EditText) convertView.findViewById(R.id.edtTen);
-            viewHold.edtDiaChi = (EditText) convertView.findViewById(R.id.edtDiaChi);
-            viewHold.edtSDT = (EditText) convertView.findViewById(R.id.edtSDT);
-            viewHold.edtNgayThue = (EditText) convertView.findViewById(R.id.edtNgayThue);
-            viewHold.edtNgayTra = (EditText) convertView.findViewById(R.id.edtNgayTra);
-            viewHold.edtSoGioThue = (EditText) convertView.findViewById(R.id.edtSoGioThue);
+            viewHold.lblPhong = (TextView) convertView.findViewById(R.id.idPhong);
+            viewHold.lblTen = (TextView) convertView.findViewById(R.id.lblName);
+            viewHold.lblSdt = (TextView) convertView.findViewById(R.id.lblPhone);
+            viewHold.lblDiaChi = (TextView) convertView.findViewById(R.id.lblDiachi);
+            viewHold.lblLoaiThue = (TextView) convertView.findViewById(R.id.lblLoaiThue);
+            viewHold.lblNgayThue = (TextView) convertView.findViewById(R.id.lblNgayThue);
+            viewHold.lblNgayTra = (TextView) convertView.findViewById(R.id.lblNgayTra);
+            viewHold.lblThoiGianThue = (TextView) convertView.findViewById(R.id.lblThoiGianThue);
             convertView.setTag(viewHold);
 
         }else {
@@ -54,13 +51,14 @@ public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
         }
         KhachHang customer =  arrCustomer.get(position);
 
-        viewHold.tvIdPhong.setText(String.valueOf(customer.getIdPhong()) );
-        viewHold.edtTen.setText(customer.getHoTen());
-        viewHold.edtDiaChi.setText(customer.getDiaChi());
-        viewHold.edtSDT.setText(customer.getSdt());
-        viewHold.edtSoGioThue.setText(String.valueOf(customer.getSoGioThue()));
-        viewHold.edtNgayTra.setText((CharSequence) customer.getNgayTra());
-        viewHold.edtNgayThue.setText((CharSequence) customer.getNgayThue());
+        viewHold.lblPhong.setText(String.valueOf(customer.getIdPhong()) );
+        viewHold.lblTen.setText(customer.getHoTen());
+        viewHold.lblSdt.setText(customer.getSdt());
+        viewHold.lblDiaChi.setText(customer.getDiaChi());
+//        viewHold.lblLoaiThue.setText(customer.ge());
+        viewHold.lblThoiGianThue.setText(String.valueOf(customer.getSoGioThue()));
+        viewHold.lblNgayTra.setText((CharSequence) customer.getNgayTra());
+        viewHold.lblNgayThue.setText((CharSequence) customer.getNgayThue());
         return convertView;
 
 
