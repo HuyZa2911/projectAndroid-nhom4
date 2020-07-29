@@ -25,6 +25,14 @@
     <string name="hintTimeIn">Giờ đến</string>
     <string name="hintTimeOut">Giờ đi</string>
     <string name="hintSelect">Nhấn dể chọn</string>
+    <string name="tvTenKhachSan">Tên khách sạn</string>
+    <string name="tvGia">Giá Tiền</string>
+    <string name="tvGioden">Giờ đến</string>
+    <string name="tvGiodi">Giờ đi</string>
+    <string name="tvDiaChiUp">Địa chỉ</string>
+    <string name="tvDiaChiDown">Địa chỉ</string>
+    <string name="tvNgayTra">Ngày trả</string>
+    <string name="tvNgaydi">Ngày đi</string>
     <string name="lblNumberPhone">Số điện thoại</string>
     <string name="lblDiachi">Địa chỉ</string>
     <string name="lblEmail">Email</string>
@@ -39,7 +47,6 @@
     <string name="wrongPassword">Sai tài khoản hoặc mật khẩu</string>
     <string name="lblLogOut">Đăng xuất</string>
     <string name="toatsExit">Nhấn lần nữa để thoát</string>
-
     <string name="btnCancel">Hủy</string>
     <string name="btnConfirm">Xác nhận</string>
     <string name="btnPayMoney">Thanh toán</string>
