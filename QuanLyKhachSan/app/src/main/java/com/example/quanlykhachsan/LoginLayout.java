@@ -44,6 +44,11 @@ public class LoginLayout extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         btnClickLogin();
         Registration();
+        final Intent intent1 = getIntent();
+        String numberPhone = intent1.getStringExtra("sPhone");
+        if(numberPhone != null){
+            etAcount.setText(numberPhone);
+        }
     }
 
 
@@ -57,7 +62,7 @@ public class LoginLayout extends AppCompatActivity {
                     @Override
                     public void onChildAdded(DataSnapshot snapshot, String previousChildName) {
                         TaiKhoan taikhoan = snapshot.getValue(TaiKhoan.class);
-                        if (etAcount.getText().toString().equals(taikhoan.getUserName()) && etPassword.getText().toString().equals(taikhoan.getPass())) {
+                        if (etAcount.getText().toString().equals(taikhoan.getPhone()) && etPassword.getText().toString().equals(taikhoan.getPass())) {
 //                            Toast.makeText(LoginLayout.this,snapshot.getKey(),Toast.LENGTH_SHORT).show();
                             if (taikhoan.getRole() == 1) {
                                 intent = new Intent(LoginLayout.this, HomeAdminLayout.class);
