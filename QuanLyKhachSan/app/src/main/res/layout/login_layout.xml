@@ -18,9 +18,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="QLKS"
+            android:text="Quản lý khách sạn"
             android:textColor="@color/colorPrimary"
-            android:textSize="100px"
+            android:textAllCaps="true"
+            android:textSize="60px"
             android:textStyle="bold"
 
             />
