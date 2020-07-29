@@ -30,28 +30,10 @@
                 android:hint="ngay"
                 android:textSize="20dp"
                 android:padding="5dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:hint="-"
-                android:padding="10dp" />
-            <TextView
-                android:id="@+id/tvNgay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:hint="ngay"
-                android:padding="5dp" />
         </LinearLayout>
 
         <TextView
-            android:id="@id/tvTenKhachSan"
+            android:id="@+id/lblTenKS"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -111,116 +93,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="20dp"
 
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvGioden"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:hint="gio"
-                android:padding="5dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:hint="-"
-                android:padding="5dp" />
-            <TextView
-                android:id="@+id/tvGiodi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:hint="gio"
-                android:layout_marginRight="10dp"
-                android:padding="5dp" />
-            <TextView
-                android:id="@+id/tvNgaydi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:hint="Ngay"
-                android:padding="5dp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvTenKhachSan"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:hint="TenKhachSan"
-            android:gravity="center_vertical"
-            android:textSize="25dp"
-            android:textColor="@android:color/black" />
-
-        <TextView
-            android:id="@+id/tvDiaChiDown"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="20dp"
-            android:gravity="center_vertical"
-            android:hint="Dia chi" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <TextView
-                    android:id="@+id/tvHoanThanh"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="HOAN THANH"
-
-                    android:padding="10sp"
-                    android:layout_gravity="center"
-                    android:textColor="@android:color/holo_green_dark"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <TextView
-                    android:id="@id/tvGia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="40dp"
-                    android:gravity="left"
-                    android:padding="20dp"
-                    android:text="100000"
-                    android:textSize="20dp"
-                    android:textColor="@android:color/holo_red_light" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
 
 </LinearLayout>
