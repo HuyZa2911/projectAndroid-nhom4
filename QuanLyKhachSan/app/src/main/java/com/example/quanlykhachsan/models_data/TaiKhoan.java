@@ -1,17 +1,22 @@
 package com.example.quanlykhachsan.models_data;
 
 public class TaiKhoan {
-    private int idAcc;
+    private String idAcc;
     private String userName;
     private String pass;
     private String phone;
     private String mail;
+    private int role;
 
-    public int getIdAcc() {
+    public int getRole() {
+        return role;
+    }
+
+    public String getIdAcc() {
         return idAcc;
     }
 
-    public void setIdAcc(int idAcc) {
+    public void setIdAcc(String idAcc) {
         this.idAcc = idAcc;
     }
 
@@ -46,12 +51,14 @@ public class TaiKhoan {
     public void setMail(String mail) {
         this.mail = mail;
     }
+    public TaiKhoan() {
+    }
 
-    public TaiKhoan(int idAcc, String userName, String pass, String phone, String mail) {
-        this.idAcc = idAcc;
+    public TaiKhoan( String userName, String pass, String phone, String mail,int role) {
         this.userName = userName;
         this.pass = pass;
         this.phone = phone;
         this.mail = mail;
+        this.role = role;
     }
 }

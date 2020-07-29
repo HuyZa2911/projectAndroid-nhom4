@@ -1,7 +1,6 @@
 package com.example.quanlykhachsan.models_manage_data;
 
 import com.example.quanlykhachsan.models_data.KhachSan;
-import com.example.quanlykhachsan.models_data.Phong;
 
 import java.util.ArrayList;
 
@@ -28,7 +27,7 @@ public class ListKhachSan {
 
     public void deleteKhachSan(KhachSan khachSan) {
         for (KhachSan khachSan1 : listKhachSan) {
-            if (khachSan1.getIdKhachSan() == khachSan.getIdKhachSan()) {
+            if (khachSan1.getIdChuKS() == khachSan.getIdChuKS()) {
                 listKhachSan.remove(khachSan1);
                 break;
             }

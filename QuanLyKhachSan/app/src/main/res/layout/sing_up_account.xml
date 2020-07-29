@@ -38,14 +38,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="left center"
+                android:gravity=""
                 android:text="Tài khoản"></TextView>
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="center"></EditText>
+                android:layout_weight="2"></EditText>
         </LinearLayout>
 
         <LinearLayout
@@ -58,12 +57,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="left center"
+                android:gravity=""
                 android:text="Mật khẩu"></TextView>
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:layout_weight="2"></EditText>
         </LinearLayout>
 
@@ -77,12 +77,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="left center"
+                android:gravity=""
                 android:text="Xác nhận mật khẩu"></TextView>
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:layout_weight="2"></EditText>
         </LinearLayout>
 
@@ -96,14 +97,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="left center"
+                android:gravity=""
                 android:text="Số điện thoại"></TextView>
 
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="center"></EditText>
+                android:layout_weight="2"></EditText>
         </LinearLayout>
     </LinearLayout>
 

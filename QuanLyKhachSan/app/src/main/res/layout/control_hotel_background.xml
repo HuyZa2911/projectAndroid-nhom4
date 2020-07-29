@@ -38,7 +38,11 @@
                         style="@style/control_hotel_linear_bg_child_lbl"
                         android:text="@string/lblHotelName"></TextView>
 
-                    <EditText style="@style/control_hotel_linear_bg_child_edt"></EditText>
+                    <EditText
+                        android:id="@+id/nameHottel"
+                        style="@style/control_hotel_linear_bg_child_edt"
+                        android:enabled="false"
+                        android:textColor="@color/black"></EditText>
                 </LinearLayout>
 
                 <LinearLayout style="@style/control_hotel_linear_bg_child">
@@ -47,7 +51,11 @@
                         style="@style/control_hotel_linear_bg_child_lbl"
                         android:text="Số phòng"></TextView>
 
-                    <EditText style="@style/control_hotel_linear_bg_child_edt"></EditText>
+                    <EditText
+                        android:id="@+id/numberRoom"
+                        style="@style/control_hotel_linear_bg_child_edt"
+                        android:enabled="false"
+                        android:textColor="@color/black"></EditText>
                 </LinearLayout>
 
                 <LinearLayout style="@style/control_hotel_linear_bg_child">
@@ -56,7 +64,11 @@
                         style="@style/control_hotel_linear_bg_child_lbl"
                         android:text="Số điện thoại"></TextView>
 
-                    <EditText style="@style/control_hotel_linear_bg_child_edt"></EditText>
+                    <EditText
+                        android:id="@+id/phoneNumber"
+                        style="@style/control_hotel_linear_bg_child_edt"
+                        android:enabled="false"
+                        android:textColor="@color/black"></EditText>
 
                 </LinearLayout>
 
@@ -66,7 +78,11 @@
                         style="@style/control_hotel_linear_bg_child_lbl"
                         android:text="Địa chỉ"></TextView>
 
-                    <EditText style="@style/control_hotel_linear_bg_child_edt"></EditText>
+                    <EditText
+                        android:id="@+id/diaChi"
+                        style="@style/control_hotel_linear_bg_child_edt"
+                        android:enabled="false"
+                        android:textColor="@color/black"></EditText>
                 </LinearLayout>
             </LinearLayout>
 

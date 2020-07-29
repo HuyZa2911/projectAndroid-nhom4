@@ -20,6 +20,7 @@ public class HomeUserLayout extends AppCompatActivity {
     LinearLayout layoutFragment;
     BottomNavigationView navMenu;
     Intent intent;
+    String idAcount,name,phone,email;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +30,11 @@ public class HomeUserLayout extends AppCompatActivity {
         layoutFragment = findViewById(R.id.layout_user);
         swapContentFragment(ListHottelFragment.newInstance(), true, R.id.layout_user);
         setMenuUser();
-
+        intent = getIntent();
+        idAcount = intent.getStringExtra("id");
+        name = intent.getStringExtra("name");
+        phone= intent.getStringExtra("phone");
+        email= intent.getStringExtra("email");
     }
 
 
@@ -48,7 +53,7 @@ public class HomeUserLayout extends AppCompatActivity {
                         Toast.makeText(HomeUserLayout.this, "Thông tin", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.information:
-                        swapContentFragment(InformationFragment.newInstance(), true, R.id.layout_user);
+                        swapContentFragment(InformationFragment.newInstance(name,phone,email), true, R.id.layout_user);
                         return true;
                 }
                 return false;

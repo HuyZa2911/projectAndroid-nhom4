@@ -52,7 +52,7 @@ public class ListHottelAdapter extends ArrayAdapter<KhachSan> {
         KhachSan dataHottel = arrCustomer.get(position);
 
         viewHold.lblNameHottel.setText(dataHottel.getTenKS());
-        viewHold.lblPhoneHottel.setText("1232423123");
+        viewHold.lblPhoneHottel.setText(String.valueOf(dataHottel.getPhone()));
         viewHold.lblAddress.setText(dataHottel.getDiaChi());
         viewHold.ratingBar.setRating(3);
         viewHold.lblPriceBookingDay.setText("123123");
