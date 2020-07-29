@@ -5,6 +5,7 @@
     <string name="inputPassword">Mật khẩu</string>
 
     <string name="btnlogin">Đăng nhập</string>
+    <string name="lblHotelName">Tên khách sạn</string>
     <string name="nameRoom">Phòng 002</string>
     <string name="lblname">Tên</string>
     <string name="lblPhone">SĐT</string>
@@ -32,7 +33,23 @@
     <string name="tvDiaChiDown">Địa chỉ</string>
     <string name="tvNgayTra">Ngày trả</string>
     <string name="tvNgaydi">Ngày đi</string>
+    <string name="lblNumberPhone">Số điện thoại</string>
+    <string name="lblDiachi">Địa chỉ</string>
+    <string name="lblEmail">Email</string>
+    <string name="lblFullName">Họ Và tên</string>
+    <string name="btnBooking">Đặt phòng</string>
+    <string name="lblNAmeHotel">Tên khách sạn</string>
+    <string name="lblLuotDat">100 Lượt Đặt</string>
+    <string name="lblPriceBoookingday">Thuê theo ngày: </string>
+    <string name="lblPriceBookingHours">Thuê theo giờ: </string>
+    <string name="lblNoAcount">Chưa có tài khoản</string>
+    <string name="lblRegistration"> Đăng ký</string>
+    <string name="wrongPassword">Sai tài khoản hoặc mật khẩu</string>
+    <string name="lblLogOut">Đăng xuất</string>
+    <string name="toatsExit">Nhấn lần nữa để thoát</string>
     <string name="btnCancel">Hủy</string>
     <string name="btnConfirm">Xác nhận</string>
     <string name="btnPayMoney">Thanh toán</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

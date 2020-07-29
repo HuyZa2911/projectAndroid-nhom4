@@ -1,4 +1,4 @@
-package com.example.quanlykhachsan.Data;
+package com.example.quanlykhachsan.models_data;
 
 import java.util.Date;
 
