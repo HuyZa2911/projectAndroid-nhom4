@@ -6,6 +6,11 @@
     <color name="colorNameRoom">#fc7043</color>
     <color name="black">#100E0E</color>
 
+
+    <color name="textCanel">#fc2e2d</color>
+    <color name="textFinish">#5d9b4f</color>
+
+
     <color name="textCanel">#fc2e2d</color>
     <color name="textFinish">#5d9b4f</color>
 
@@ -13,6 +18,5 @@
     <color name="colorBlue"> #0079bf</color>
     <color name="colorWhite">#fff</color>
     <color name="colorBlack"> #000</color>
-
 
 </resources>
