@@ -74,4 +74,8 @@
         parent="android:style/Widget.Material.RatingBar.Small">
 
     </style>
+
+    <style name="myborder">
+        <item name="android:background">@drawable/my_border</item>
+    </style>
 </resources>
