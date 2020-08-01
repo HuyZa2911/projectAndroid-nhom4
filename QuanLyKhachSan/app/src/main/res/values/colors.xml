@@ -5,4 +5,6 @@
     <color name="colorAccent">#fc7043</color>
     <color name="colorNameRoom">#fc7043</color>
     <color name="black">#100E0E</color>
+    <color name="textCanel">#fc2e2d</color>
+    <color name="textFinish">#5d9b4f</color>
 </resources>
