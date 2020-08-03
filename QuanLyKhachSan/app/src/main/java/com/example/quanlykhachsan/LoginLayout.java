@@ -24,10 +24,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LoginLayout extends AppCompatActivity {
     public static String ADMIN = "ADMIN";
     public static String USER = "USER";
+ public static Intent intent ;
 
     String role = USER;
     Button btnLogin;
-    Intent intent;
+
     TextView lblRegistration;
     EditText etAcount, etPassword;
     private DatabaseReference database;
@@ -44,8 +45,8 @@ public class LoginLayout extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         btnClickLogin();
         Registration();
-        final Intent intent1 = getIntent();
-        String numberPhone = intent1.getStringExtra("sPhone");
+        intent = getIntent();
+        String numberPhone = intent.getStringExtra("phone");
         if(numberPhone != null){
             etAcount.setText(numberPhone);
         }
@@ -69,13 +70,13 @@ public class LoginLayout extends AppCompatActivity {
                                 intent.putExtra("id",snapshot.getKey());
                                 intent.putExtra("name",taikhoan.getUserName());
                                 intent.putExtra("phone",taikhoan.getPhone());
-                                intent.putExtra("email",taikhoan.getMail());
+//                                intent.putExtra("email",taikhoan.getMail());
                             } else {
                                 intent = new Intent(LoginLayout.this, HomeUserLayout.class);
                                 intent.putExtra("id",snapshot.getKey());
                                 intent.putExtra("name",taikhoan.getUserName());
                                 intent.putExtra("phone",taikhoan.getPhone());
-                                intent.putExtra("email",taikhoan.getMail());
+//                                intent.putExtra("email",taikhoan.getMail());
                             }
                             kt = true;
                             startActivity(intent);
