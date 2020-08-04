@@ -5,7 +5,7 @@ public class TaiKhoan {
     private String userName;
     private String pass;
     private String phone;
-    private String mail;
+//    private String mail;
     private int role;
 
     public int getRole() {
@@ -38,21 +38,21 @@ public class TaiKhoan {
         this.phone = phone;
     }
 
-    public String getMail() {
-        return mail;
-    }
+//    public String getMail() {
+//        return mail;
+//    }
 
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
+//    public void setMail(String mail) {
+//        this.mail = mail;
+//    }
     public TaiKhoan() {
     }
 
-    public TaiKhoan( String userName, String pass, String phone, String mail,int role) {
+    public TaiKhoan( String userName, String pass, String phone,int role) {
         this.userName = userName;
         this.pass = pass;
         this.phone = phone;
-        this.mail = mail;
+//        this.mail = mail;
         this.role = role;
     }
 }
