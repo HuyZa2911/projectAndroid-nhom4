@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.quanlykhachsan.fragment.HistoryFragment;
 import com.example.quanlykhachsan.fragment.InformationFragment;
 import com.example.quanlykhachsan.fragment.ListHottelFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -50,7 +51,7 @@ public class HomeUserLayout extends AppCompatActivity {
                         Toast.makeText(HomeUserLayout.this, "Update versition 2.0", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.history:
-                        Toast.makeText(HomeUserLayout.this, "Thông tin", Toast.LENGTH_SHORT).show();
+                        swapContentFragment(HistoryFragment.newInstance(), true, R.id.layout_user);
                         return true;
                     case R.id.information:
                         swapContentFragment(InformationFragment.newInstance(name,phone,email), true, R.id.layout_user);
