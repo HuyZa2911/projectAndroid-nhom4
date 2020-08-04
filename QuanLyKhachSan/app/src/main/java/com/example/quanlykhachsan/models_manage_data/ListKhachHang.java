@@ -23,6 +23,9 @@ public class ListKhachHang {
 
     }
 
+    public ListKhachHang() {
+    }
+
     public ListKhachHang(ArrayList<TaiKhoan> listCustomer) {
         this.listCustomer = listCustomer;
     }

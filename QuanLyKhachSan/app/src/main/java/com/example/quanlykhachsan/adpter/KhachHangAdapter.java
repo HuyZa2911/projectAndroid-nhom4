@@ -37,6 +37,7 @@ public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
         if(convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.fragment_item_wait, parent, false);
             viewHold = new ViewHolder();
+
             viewHold.lblPhong = (TextView) convertView.findViewById(R.id.idPhong);
             viewHold.lblTen = (TextView) convertView.findViewById(R.id.lblName);
             viewHold.lblSdt = (TextView) convertView.findViewById(R.id.lblPhone);
@@ -51,6 +52,7 @@ public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
             viewHold = (ViewHolder) convertView.getTag();
         }
         KhachHang customer =  arrCustomer.get(position);
+
 
         viewHold.lblPhong.setText(String.valueOf(customer.getIdPhong()) );
         viewHold.lblTen.setText(customer.getHoTen());

@@ -1,7 +1,7 @@
 package com.example.quanlykhachsan.models_data;
 
 public class TaiKhoan {
-    private String idAcc;
+
     private String userName;
     private String pass;
     private String phone;
@@ -12,13 +12,7 @@ public class TaiKhoan {
         return role;
     }
 
-    public String getIdAcc() {
-        return idAcc;
-    }
 
-    public void setIdAcc(String idAcc) {
-        this.idAcc = idAcc;
-    }
 
     public String getUserName() {
         return userName;

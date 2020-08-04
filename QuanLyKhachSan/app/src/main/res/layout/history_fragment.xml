@@ -10,6 +10,7 @@
 
 
         <LinearLayout
+
             style="@style/history_fragment_linear"
             android:orientation="vertical">
                 <TextView
@@ -22,6 +23,38 @@
                     style="@style/history_fragment_textview"
                     android:hint="TenKhachSan"
                     android:textColor="@android:color/black" />
+            <TextView
+                android:id="@+id/tvNgayden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="ngay"
+                android:textSize="20dp"
+                android:padding="5dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblTenKS"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:hint="TenKhachSan"
+            android:textSize="25dp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/tvDiaChiUp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:hint="DiaChi"
+            android:textSize="20dp"
+            android:textColor="@android:color/darker_gray"
+            tools:ignore="DuplicateIds" />
 
                 <TextView
                     android:id="@+id/tvDiaChiUp"
