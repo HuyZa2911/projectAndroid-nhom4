@@ -48,6 +48,7 @@ public class HomeUserLayout extends AppCompatActivity {
                         return true;
                     case R.id.search:
                         Toast.makeText(HomeUserLayout.this, "Update versition 2.0", Toast.LENGTH_SHORT).show();
+                        swapContentFragment(SearchFragment.newInstance(), true, R.id.layout_user);
                         return true;
                     case R.id.history:
                         Toast.makeText(HomeUserLayout.this, "Thông tin", Toast.LENGTH_SHORT).show();

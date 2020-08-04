@@ -65,6 +65,32 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">2.5</item>
     </style>
+<!--    Linear_layout-->
+    <style name="history_fragment_linear">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+<!--    Textview-->
+    <style name="history_fragment_textview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+<!--    Textview1-->
+    <style name="history_fragment_textview1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+<!--        <item name="android:layout_marginRight">0dp</item>-->
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
     <style name="layout_home_list">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -72,6 +98,5 @@
     </style>
     <style name="customRatingBar"
         parent="android:style/Widget.Material.RatingBar.Small">
-
     </style>
 </resources>
