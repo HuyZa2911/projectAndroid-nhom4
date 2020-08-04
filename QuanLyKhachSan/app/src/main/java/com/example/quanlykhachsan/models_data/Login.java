@@ -59,12 +59,11 @@ public class Login {
     public Login() {
     }
 
-    public Login(String idChuKS, String userName, String pass, String phone, String mail,int role) {
+    public Login(String idChuKS, String userName, String pass, String phone,int role) {
         this.idChuKS = idChuKS;
         this.userName = userName;
         this.pass = pass;
         this.phone = phone;
-        this.mail = mail;
         this.role = role;
     }
 }
