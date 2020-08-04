@@ -52,7 +52,7 @@ public class HomeUserLayout extends AppCompatActivity {
                         swapContentFragment(SearchFragment.newInstance(), true, R.id.layout_user);
                         return true;
                     case R.id.history:
-                        swapContentFragment(HistoryFragment.newInstance(), true, R.id.layout_user);
+                        swapContentFragment(HistoryFragment.newInstance(idAcount), true, R.id.layout_user);
                         return true;
                     case R.id.information:
                         swapContentFragment(InformationFragment.newInstance(name,phone,email), true, R.id.layout_user);
