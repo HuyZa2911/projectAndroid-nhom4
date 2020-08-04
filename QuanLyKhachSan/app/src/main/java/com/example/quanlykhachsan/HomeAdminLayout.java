@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -15,10 +16,14 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.quanlykhachsan.fragment.HomeAdminFragment;
 import com.example.quanlykhachsan.fragment.InformationFragment;
 import com.example.quanlykhachsan.fragment.ListHottelFragment;
+import com.example.quanlykhachsan.fragment.ListRoomFragment;
 import com.example.quanlykhachsan.fragment.ListWaitFragment;
 import com.example.quanlykhachsan.models_data.KhachSan;
 import com.example.quanlykhachsan.models_data.TaiKhoan;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,7 +31,7 @@ public class HomeAdminLayout extends AppCompatActivity {
     LinearLayout layoutFragment;
     BottomNavigationView navMenu;
     Intent intent;
-    String idAcount,name,phone,email,diachi;
+    String idAcount,name,phone,email,diachi,idKS;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,37 @@ public class HomeAdminLayout extends AppCompatActivity {
         name = intent.getStringExtra("name");
         phone= intent.getStringExtra("phone");
         email= intent.getStringExtra("email");
+
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        database.child("khachsan").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot snapshot, String previousChildName) {
+                KhachSan ks = snapshot.getValue(KhachSan.class);
+                if(intent.getStringExtra("id").equals(ks.getIdChuKS())){
+                    idKS = snapshot.getKey();
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         swapContentFragment(HomeAdminFragment.newInstance(idAcount), true, R.id.layout_admin);
 //            DatabaseReference database = FirebaseDatabase.getInstance().getReference();
@@ -59,6 +95,7 @@ public class HomeAdminLayout extends AppCompatActivity {
                         return true;
                     case R.id.manage_room:
                         Toast.makeText(HomeAdminLayout.this, "Quản lý phòng", Toast.LENGTH_SHORT).show();
+                        swapContentFragment(ListRoomFragment.newInstance(idKS), true, R.id.layout_admin);
                         return true;
                     case R.id.list_wait:
                         swapContentFragment(ListWaitFragment.newInstance(), true, R.id.layout_admin);

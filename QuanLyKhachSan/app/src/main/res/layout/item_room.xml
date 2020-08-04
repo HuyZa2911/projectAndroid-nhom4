@@ -6,34 +6,39 @@
     android:layout_width="match_parent"
     android:layout_margin="@dimen/cardViewMargin"
     card_view:cardCornerRadius="@dimen/cardCornerRadius"
-    card_view:cardElevation="@dimen/cardElevation">
+    card_view:cardElevation="@dimen/cardElevation"
+    android:background="@drawable/layout_item">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <ImageView
-            android:id="@+id/imvImageHotel"
+        <TextView
+            android:id="@+id/txtnameRoom"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:src="@drawable/room1"/>
+            android:gravity="center"
+            android:text="Phòng 1"
+            android:textColor="@color/colorPrimary"/>
         <TextView
             android:id="@+id/txtGiaTheoGio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="25000d/g"/>
         <TextView
             android:id="@+id/txtGiaTheoNgay"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="25000d/n"/>
         <TextView
             android:id="@+id/txtTinhTrang"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="Trống"/>
 

@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
 
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <Button
-            style="@style/myborder"
             android:id="@+id/PhongThuong"
+            style="@style/myborder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="P.Thường"
-            />
+            android:text="P.Thường" />
+
         <Button
-            style="@style/myborder"
             android:id="@+id/PhongVid"
+            style="@style/myborder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="P.Vid"
-            />
+            android:text="P.Vid" />
+
         <Button
-            style="@style/myborder"
             android:id="@+id/PhongTrong"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="P.Vid"
-            />
-        <Button
             style="@style/myborder"
-            android:id="@+id/PhongDaDat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="P.Trống"
-            />
+            android:text="P.Vid" />
+
+        <Button
+            android:id="@+id/PhongDaDat"
+            style="@style/myborder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="P.Trống" />
     </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myRecyclerView"
+        android:id="@+id/rcListRoom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

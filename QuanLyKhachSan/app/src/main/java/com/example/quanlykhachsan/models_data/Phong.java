@@ -1,51 +1,49 @@
 package com.example.quanlykhachsan.models_data;
 
 public class Phong {
-    private int idPhong;
-    private int idKhachSan;
+    private String idPhong;
+    private String idKhachSan;
     private int soGiuong;
     private int loaiPhong;
-    private double giaPhong;
     private int trangThai;
-    private Double giaTienTheoGio;
-    private Double getGiaTienTheoNgay;
+    private int giaTienTheoGio;
+    private int getGiaTienTheoNgay;
 
-    public Double getGiaTienTheoGio() {
+    public int getGiaTienTheoGio() {
         return giaTienTheoGio;
     }
 
-    public void setGiaTienTheoGio(Double giaTienTheoGio) {
+    public void setGiaTienTheoGio(int giaTienTheoGio) {
         this.giaTienTheoGio = giaTienTheoGio;
     }
 
-    public Double getGetGiaTienTheoNgay() {
+    public int getGetGiaTienTheoNgay() {
         return getGiaTienTheoNgay;
     }
 
-    public void setGetGiaTienTheoNgay(Double getGiaTienTheoNgay) {
+    public void setGetGiaTienTheoNgay(int  getGiaTienTheoNgay) {
         this.getGiaTienTheoNgay = getGiaTienTheoNgay;
     }
 
-    public Phong(int idPhong, int idKhachSan, int soGiuong, int loaiPhong, double giaPhong, int trangThai, Double giaTienTheoGio, Double getGiaTienTheoNgay) {
+    public Phong(String idPhong, String idKhachSan, int soGiuong, int loaiPhong, int trangThai, int giaTienTheoGio, int getGiaTienTheoNgay) {
         this.idPhong = idPhong;
         this.idKhachSan = idKhachSan;
         this.soGiuong = soGiuong;
         this.loaiPhong = loaiPhong;
-        this.giaPhong = giaPhong;
         this.trangThai = trangThai;
         this.giaTienTheoGio = giaTienTheoGio;
         this.getGiaTienTheoNgay = getGiaTienTheoNgay;
     }
 
-    public int getIdKhachSan() {
+    public String getIdKhachSan() {
         return idKhachSan;
     }
 
-    public void setIdKhachSan(int idKhachSan) {
+    public void setIdKhachSan(String idKhachSan) {
         this.idKhachSan = idKhachSan;
     }
 
-    public void setIdPhong(int idPhong) {
+    public void setIdPhong(String idPhong) {
         this.idPhong = idPhong;
     }
 
@@ -57,15 +55,11 @@ public class Phong {
         this.loaiPhong = loaiPhong;
     }
 
-    public void setGiaPhong(double giaPhong) {
-        this.giaPhong = giaPhong;
-    }
-
     public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
 
-    public int getIdPhong() {
+    public String getIdPhong() {
         return idPhong;
     }
 
@@ -75,10 +69,6 @@ public class Phong {
 
     public int getLoaiPhong() {
         return loaiPhong;
-    }
-
-    public double getGiaPhong() {
-        return giaPhong;
     }
 
     public int getTrangThai() {

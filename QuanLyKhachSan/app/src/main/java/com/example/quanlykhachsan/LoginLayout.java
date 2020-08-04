@@ -27,7 +27,6 @@ import java.util.ArrayList;
 public class LoginLayout extends AppCompatActivity {
     public static String ADMIN = "ADMIN";
     public static String USER = "USER";
-    TaiKhoan taikhoan;
 
     String role = USER;
     Button btnLogin;
@@ -36,6 +35,7 @@ public class LoginLayout extends AppCompatActivity {
     EditText etAcount, etPassword;
     private DatabaseReference database;
     boolean kt = false;
+    ArrayList<Login> tk = new ArrayList<Login>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +50,10 @@ public class LoginLayout extends AppCompatActivity {
         Registration();
         final Intent intent1 = getIntent();
         String numberPhone = intent1.getStringExtra("sPhone");
-        if(numberPhone != null){
+        if (numberPhone != null) {
             etAcount.setText(numberPhone);
         }
+        setButtonLogin();
     }
 
 
@@ -60,10 +61,13 @@ public class LoginLayout extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setButtonLogin(etAcount.getText().toString(),etPassword.getText().toString());
+                if (!kt(etAcount.getText().toString(), etPassword.getText().toString())) {
+                    Toast.makeText(LoginLayout.this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
+
     private void Registration() {
         lblRegistration.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +77,7 @@ public class LoginLayout extends AppCompatActivity {
             }
         });
     }
+
     private long backPressTime;
 
 
@@ -87,37 +92,93 @@ public class LoginLayout extends AppCompatActivity {
         }
         backPressTime = System.currentTimeMillis();
     }
-    private void setButtonLogin(final String userName, final String password){
-        database = FirebaseDatabase.getInstance().getReference();
-        database.child("account").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange( DataSnapshot snapshot) {
-                if (snapshot.child(userName).exists()){
-                    if (!userName.isEmpty()){
-                        TaiKhoan taikhoan = snapshot.child(userName).getValue(TaiKhoan.class);
-                        if (password.equals(taikhoan.getPass())){
-                            if (taikhoan.getRole() == 1) {
-                                    intent = new Intent(LoginLayout.this, HomeAdminLayout.class);
-                                    intent.putExtra("id", userName);
-                                    intent.putExtra("name", taikhoan.getUserName());
-                                    intent.putExtra("phone", taikhoan.getPhone());
-                                    intent.putExtra("email", taikhoan.getMail());
-                                } else {
-                                    intent = new Intent(LoginLayout.this, HomeUserLayout.class);
-                                    intent.putExtra("id", userName);
-                                    intent.putExtra("name", taikhoan.getUserName());
-                                    intent.putExtra("phone", taikhoan.getPhone());
-                                    intent.putExtra("email", taikhoan.getMail());
-                            }
-                                startActivity(intent);
-                        }
-                        else {
-                            Toast.makeText(LoginLayout.this,"Sai tài khoản hoặc mật khẩu",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }else {
-                    Toast.makeText(LoginLayout.this,"Sai tài khoản hoặc mật khẩu",Toast.LENGTH_SHORT).show();
+
+    //    private void setButtonLogin(final String userName, final String password){
+//        database = FirebaseDatabase.getInstance().getReference();
+//        database.child("account").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange( DataSnapshot snapshot) {
+//                if (snapshot.child(userName).exists()){
+//                    if (!userName.isEmpty()){
+//                        TaiKhoan taikhoan = snapshot.child(userName).getValue(TaiKhoan.class);
+//                        if (password.equals(taikhoan.getPass())){
+//                            if (taikhoan.getRole() == 1) {
+//                                    intent = new Intent(LoginLayout.this, HomeAdminLayout.class);
+//                                    intent.putExtra("id", userName);
+//                                    intent.putExtra("name", taikhoan.getUserName());
+//                                    intent.putExtra("phone", taikhoan.getPhone());
+//                                    intent.putExtra("email", taikhoan.getMail());
+//                                } else {
+//                                    intent = new Intent(LoginLayout.this, HomeUserLayout.class);
+//                                    intent.putExtra("id", userName);
+//                                    intent.putExtra("name", taikhoan.getUserName());
+//                                    intent.putExtra("phone", taikhoan.getPhone());
+//                                    intent.putExtra("email", taikhoan.getMail());
+//                            }
+//                                startActivity(intent);
+//                        }
+//                        else {
+//                            Toast.makeText(LoginLayout.this,"Sai tài khoản hoặc mật khẩu",Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                }else {
+//                    Toast.makeText(LoginLayout.this,"Sai tài khoản hoặc mật khẩu",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
+//    }
+    private boolean kt(String phone, String pass) {
+        for (int i = 0; i < tk.size(); i++) {
+            if (tk.get(i).getPhone().equals(phone) && tk.get(i).getPass().equals(pass)) {
+                if (tk.get(i).getRole() == 1) {
+                    intent = new Intent(LoginLayout.this, HomeAdminLayout.class);
+                                    intent.putExtra("id", tk.get(i).getIdChuKS());
+                                    intent.putExtra("name", tk.get(i).getUserName());
+                                    intent.putExtra("phone", tk.get(i).getPhone());
+                                    intent.putExtra("email", tk.get(i).getMail());
+                } else {
+                    intent = new Intent(LoginLayout.this, HomeUserLayout.class);
+                                    intent.putExtra("id", tk.get(i).getIdChuKS());
+                                    intent.putExtra("name", tk.get(i).getUserName());
+                                    intent.putExtra("phone", tk.get(i).getPhone());
+                                    intent.putExtra("email", tk.get(i).getMail());
                 }
+                startActivity(intent);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void setButtonLogin() {
+        database = FirebaseDatabase.getInstance().getReference();
+        database.child("account").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String idchuKS = snapshot.getKey();
+                TaiKhoan taikhoan = snapshot.getValue(TaiKhoan.class);
+                tk.add(new Login(idchuKS,taikhoan.getUserName(), taikhoan.getPass(), taikhoan.getPhone(), taikhoan.getMail(), taikhoan.getRole()));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
             }
 
             @Override
