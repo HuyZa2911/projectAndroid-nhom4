@@ -117,9 +117,6 @@ public class LoginLayout extends AppCompatActivity {
 
                     }
                 });
-
-                setButtonLogin(etAcount.getText().toString(),etPassword.getText().toString());
-
             }
         });
     }
@@ -219,7 +216,7 @@ public class LoginLayout extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String idchuKS = snapshot.getKey();
                 TaiKhoan taikhoan = snapshot.getValue(TaiKhoan.class);
-                tk.add(new Login(idchuKS,taikhoan.getUserName(), taikhoan.getPass(), taikhoan.getPhone(), taikhoan.getMail(), taikhoan.getRole()));
+                tk.add(new Login(idchuKS,taikhoan.getUserName(), taikhoan.getPass(), taikhoan.getPhone(), taikhoan.getRole()));
             }
 
             @Override

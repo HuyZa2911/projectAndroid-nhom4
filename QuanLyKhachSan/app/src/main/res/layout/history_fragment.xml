@@ -9,23 +9,20 @@
     android:layout_height="match_parent">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
         <LinearLayout
-
-            style="@style/history_fragment_linear"
-            android:orientation="vertical">
-                <TextView
-                        android:id="@+id/tvNgayden"
-                       style="@style/history_fragment_textview"
-                        android:hint="ngay"
-                        android:padding="5dp" />
-                <TextView
-                    android:id="@+id/lblTenKS"
-                    style="@style/history_fragment_textview"
-                    android:hint="TenKhachSan"
-                    android:textColor="@android:color/black" />
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/tvNgayden"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
@@ -56,40 +53,45 @@
             android:textColor="@android:color/darker_gray"
             tools:ignore="DuplicateIds" />
 
-                <TextView
-                    android:id="@+id/tvDiaChiUp"
-                   style="@style/history_fragment_textview"
-                    android:hint="DiaChi"
-                    android:textColor="@android:color/darker_gray"
-                    tools:ignore="DuplicateIds" />
-        </LinearLayout>
         <LinearLayout
-            style="@style/history_fragment_linear"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="horizontal">
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
                 <TextView
                     android:id="@+id/tvHuy"
-                    style="@style/history_fragment_textview1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:padding="10sp"
                     android:text="HỦY"
-
+                    android:textSize="20dp"
                     android:textColor="@android:color/holo_red_light" />
             </LinearLayout>
             <LinearLayout
-               android:layout_height="match_parent"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
                 android:layout_weight="1">
                 <TextView
                     android:id="@+id/tvGia"
-                    style="@style/history_fragment_textview1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="left"
+                    android:padding="20dp"
+                    android:textSize="20dp"
                     android:text="100000"
-                    android:textColor="@android:color/holo_red_light"
-                     />
+                    android:textColor="@android:color/holo_red_light" />
             </LinearLayout>
         </LinearLayout>
-
+    </LinearLayout>
 
 
 

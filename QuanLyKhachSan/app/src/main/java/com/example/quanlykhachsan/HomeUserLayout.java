@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.quanlykhachsan.fragment.HistoryFragment;
 import com.example.quanlykhachsan.fragment.InformationFragment;
 import com.example.quanlykhachsan.fragment.ListHottelFragment;
+import com.example.quanlykhachsan.fragment.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeUserLayout extends AppCompatActivity {
