@@ -30,7 +30,6 @@ public class LoginLayout extends AppCompatActivity {
 
  public static Intent intent ;
     TaiKhoan taikhoan;
-
     String role = USER;
     Button btnLogin;
 
@@ -67,10 +66,10 @@ public class LoginLayout extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 if (!kt(etAcount.getText().toString(), etPassword.getText().toString())) {
                     Toast.makeText(LoginLayout.this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
                 }
-
 
 
                 database = FirebaseDatabase.getInstance().getReference();
@@ -120,6 +119,7 @@ public class LoginLayout extends AppCompatActivity {
                 });
 
                 setButtonLogin(etAcount.getText().toString(),etPassword.getText().toString());
+
             }
         });
     }
