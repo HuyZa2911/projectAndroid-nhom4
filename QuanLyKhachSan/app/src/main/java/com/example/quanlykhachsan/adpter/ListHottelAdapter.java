@@ -33,7 +33,6 @@ public class ListHottelAdapter extends ArrayAdapter<KhachSan> {
         RatingBar ratingBar;
         TextView lblPriceBookingDay;
         TextView lblPriceBookingHours;
-        Button bntBooking;
     }
 
     @Override
@@ -47,7 +46,6 @@ public class ListHottelAdapter extends ArrayAdapter<KhachSan> {
         viewHold.ratingBar = convertView.findViewById(R.id.ratingBar);
         viewHold.lblPriceBookingDay = convertView.findViewById(R.id.lblPriceBookingDay);
         viewHold.lblPriceBookingHours = convertView.findViewById(R.id.lblPriceBookingHours);
-        viewHold.bntBooking = convertView.findViewById(R.id.bntBooking);
 
         KhachSan dataHottel = arrCustomer.get(position);
 
