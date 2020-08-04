@@ -12,7 +12,7 @@ public class ListPhong {
     public void updatePhong(Phong phong) {
         for (Phong phong1 : listPhong) {
             if (phong1.getIdPhong() == phong.getIdPhong()) {
-                phong1.setGiaPhong(phong.getGiaPhong());
+//                phong1.setGiaPhong(phong.getGiaPhong());
                 phong1.setLoaiPhong(phong.getLoaiPhong());
                 phong1.setSoGiuong(phong.getSoGiuong());
                 phong1.setTrangThai(phong.getTrangThai());

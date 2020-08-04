@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.quanlykhachsan.adpter.KhachHangAdapter;
 import com.example.quanlykhachsan.R;
@@ -41,7 +43,7 @@ public class ListWaitFragment extends Fragment {
                 false);
         lvKhachHang = rootView.findViewById(R.id.lvKhachHang);
 
-        ArrayList<KhachHang> arrKhachHang = new ArrayList<KhachHang>();
+        final ArrayList<KhachHang> arrKhachHang = new ArrayList<KhachHang>();
         KhachHang khachHang1 = new KhachHang(1 ,"Nguyen Van A", "123456", "12/5/2002", "12/8/2019", "so 4 Thu Duc",
                 8);
         KhachHang khachHang2 = new KhachHang(2 ,"Nguyen Van B", "123456", "12/5/2002", "12/8/2019", "so 4 Tu Duc",
@@ -67,6 +69,12 @@ public class ListWaitFragment extends Fragment {
         KhachHangAdapter khachHangAdapter = new KhachHangAdapter(context,R.layout.fragment_item_list_wait,arrKhachHang);
 
             lvKhachHang.setAdapter(khachHangAdapter);
+            lvKhachHang.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(context,String.valueOf(position),Toast.LENGTH_SHORT).show();
+                }
+            });
         return rootView;
     }
 }

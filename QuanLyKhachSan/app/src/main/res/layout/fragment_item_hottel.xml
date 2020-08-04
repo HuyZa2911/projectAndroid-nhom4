@@ -27,14 +27,14 @@
             android:gravity="center"
             android:padding="20dp">
 
-            <Button
-                android:background="@color/colorPrimary"
+            <TextView
+                android:textColor="@color/colorPrimary"
                 android:textAllCaps="false"
                 android:id="@+id/bntBooking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/btnBooking" />
+
+                android:text="@string/lblSelect" />
         </LinearLayout>
 
 

@@ -3,43 +3,40 @@ package com.example.quanlykhachsan.adpter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.quanlykhachsan.models_data.CardViewModel;
+import com.example.quanlykhachsan.models_data.Phong;
 import com.example.quanlykhachsan.R;
-import java.util.Vector;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+import java.util.ArrayList;
 
-    private Vector<CardViewModel> list;
+public class PhongAdapter extends RecyclerView.Adapter<PhongAdapter.MyViewHolder> {
 
-    public MyAdapter(Vector<CardViewModel> list) {
-        this.list = list;
+    private ArrayList<Phong> list;
+
+    public PhongAdapter(ArrayList<Phong> dataRoom) {
+        this.list = dataRoom;
     }
 
+
     static class MyViewHolder extends RecyclerView.ViewHolder{
-        ImageView imvImageHotel;
         TextView txtGiaTheoGio;
         TextView txtGiaTheoNgay;
         TextView txtTinhTrang;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(View itemView) {
             super(itemView);
-            imvImageHotel = itemView.findViewById(R.id.imvImageHotel);
             txtGiaTheoGio = itemView.findViewById(R.id.txtGiaTheoGio);
             txtGiaTheoNgay = itemView.findViewById(R.id.txtGiaTheoNgay);
             txtTinhTrang = itemView.findViewById(R.id.txtTinhTrang);
         }
     }
 
-    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         CardView cardView = (CardView) inflater.inflate(R.layout.item_room, parent, false);
         //CardView cardView = (CardView) inflater.inflate(viewType, parent, false);
@@ -47,16 +44,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int position) {
-        CardViewModel aCard = list.get(position);
-        viewHolder.imvImageHotel.setImageResource(aCard.getGetImvImageHotel());
-        viewHolder.txtGiaTheoGio.setText(aCard.getGiaTheoGio());
-        viewHolder.txtGiaTheoNgay.setText(aCard.getGiaTheoNgay());
-        viewHolder.txtTinhTrang.setText(aCard.getTinhTrang());
+    public void onBindViewHolder( MyViewHolder viewHolder, int position) {
+        Phong aCard = list.get(position);
+        viewHolder.txtGiaTheoGio.setText(String.valueOf(aCard.getGiaTienTheoGio())+"đ/h");
+        viewHolder.txtGiaTheoNgay.setText(String.valueOf(aCard.getGetGiaTienTheoNgay())+"đ/ngày");
+        viewHolder.txtTinhTrang.setText(String.valueOf(aCard.getTrangThai()));
     }
 
 
     public int getItemCount() {
         return list.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return R.layout.item_room;
     }
 }

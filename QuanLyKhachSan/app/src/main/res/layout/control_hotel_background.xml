@@ -85,7 +85,6 @@
                         android:textColor="@color/black"></EditText>
                 </LinearLayout>
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 </LinearLayout>

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
+    android:descendantFocusability="blocksDescendants"
     app:cardCornerRadius="7dp"
     app:cardElevation="4dp">
 
