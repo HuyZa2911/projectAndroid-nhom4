@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="P.Thường"
+            android:background="@color/cardview_dark_background"
             />
         <Button
             style="@style/myborder"
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="P.Vid"
+            android:background="@color/cardview_dark_background"
             />
         <Button
             style="@style/myborder"
@@ -34,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="P.Vid"
+            android:background="@color/cardview_dark_background"
             />
         <Button
             style="@style/myborder"
@@ -42,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="P.Trống"
+            android:background="@color/cardview_dark_background"
             />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
