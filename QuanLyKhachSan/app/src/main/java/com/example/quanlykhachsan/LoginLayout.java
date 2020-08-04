@@ -120,8 +120,6 @@ public class LoginLayout extends AppCompatActivity {
                 });
 
                 setButtonLogin(etAcount.getText().toString(),etPassword.getText().toString());
-
-
             }
         });
     }
