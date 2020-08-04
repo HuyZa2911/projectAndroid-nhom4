@@ -28,10 +28,10 @@ public class LoginLayout extends AppCompatActivity {
     public static String ADMIN = "ADMIN";
     public static String USER = "USER";
 
+
+
  public static Intent intent ;
-
     TaiKhoan taikhoan;
-
 
     String role = USER;
     Button btnLogin;
