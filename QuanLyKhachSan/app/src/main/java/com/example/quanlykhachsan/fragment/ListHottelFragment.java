@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.quanlykhachsan.R;
 import com.example.quanlykhachsan.adpter.ListHottelAdapter;
@@ -24,9 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 
-/**
- * A fragment representing a list of Items.
- */
 public class ListHottelFragment extends Fragment {
     ListView lvListHottel;
     Context context;
@@ -38,7 +37,7 @@ public class ListHottelFragment extends Fragment {
         return fragment;
     }
     @Override
-    public void onAttach(@NonNull Context context) {
+    public void onAttach( Context context) {
         super.onAttach(context);
         this.context = context;
     }
@@ -83,6 +82,12 @@ public class ListHottelFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        lvListHottel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(context,arrKhachsan.get(position).getIdChuKS(),Toast.LENGTH_SHORT).show();
             }
         });
         return view;
