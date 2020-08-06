@@ -21,6 +21,7 @@
         <activity android:name=".HomeAdminLayout"/>
         <activity android:name=".HomeUserLayout"/>
         <activity android:name=".LayoutRegistration"/>
+        <activity android:name=".RoomUser"/>
     </application>
 
 </manifest>

@@ -70,54 +70,9 @@ public class LoginLayout extends AppCompatActivity {
                 if (!kt(etAcount.getText().toString(), etPassword.getText().toString())) {
                     Toast.makeText(LoginLayout.this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
                 }
-
-
-
-                database = FirebaseDatabase.getInstance().getReference();
-                database.child("account").addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(DataSnapshot snapshot, String previousChildName) {
-                        TaiKhoan taikhoan = snapshot.getValue(TaiKhoan.class);
-                        if (etAcount.getText().toString().equals(taikhoan.getPhone()) && etPassword.getText().toString().equals(taikhoan.getPass())) {
-//                            Toast.makeText(LoginLayout.this,snapshot.getKey(),Toast.LENGTH_SHORT).show();
-                            if (taikhoan.getRole() == 1) {
-                                intent = new Intent(LoginLayout.this, HomeAdminLayout.class);
-                                intent.putExtra("id",snapshot.getKey());
-                                intent.putExtra("name",taikhoan.getUserName());
-                                intent.putExtra("phone",taikhoan.getPhone());
-//                                intent.putExtra("email",taikhoan.getMail());
-                            } else {
-                                intent = new Intent(LoginLayout.this, HomeUserLayout.class);
-                                intent.putExtra("id",snapshot.getKey());
-                                intent.putExtra("name",taikhoan.getUserName());
-                                intent.putExtra("phone",taikhoan.getPhone());
-//                                intent.putExtra("email",taikhoan.getMail());
-                            }
-                            kt = true;
-                            startActivity(intent);
-                        }
-                    }
-
-                    @Override
-                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                    }
-
-                    @Override
-                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                else{
+                    kt(etAcount.getText().toString(), etPassword.getText().toString());
+                }
             }
         });
     }

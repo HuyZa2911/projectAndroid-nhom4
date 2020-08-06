@@ -34,6 +34,7 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/nameRoom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nameRoom"
@@ -76,6 +77,7 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -106,6 +108,8 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
+                            android:id="@+id/edtPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number" />
@@ -136,6 +140,8 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
+                            android:id="@+id/cmnd"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number" />
@@ -254,6 +260,7 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtCheckinDay"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -287,6 +294,7 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
                             android:hint="@string/hintSelect"
                             android:id="@+id/edtCheckOutDay"
                             android:layout_width="match_parent"
@@ -320,6 +328,8 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
+                            android:id="@+id/totalTimeDay"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number" />
@@ -358,6 +368,7 @@
                         android:layout_weight="3">
 
                         <TextView
+                            android:id="@+id/priceHours"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
@@ -390,6 +401,7 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtDayHours"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -425,6 +437,8 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
+                            android:id="@+id/totalTimeHours"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number" />
@@ -440,6 +454,7 @@
                         android:layout_weight="1">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtTimeIn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -454,6 +469,7 @@
                         android:layout_weight="1">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtTimeOut"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -473,24 +489,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:gravity="center">
+        android:layout_weight="2"
+        android:gravity="center"
+        android:padding="40px">
 
         <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:text="@string/btnCancel"
-            android:textAllCaps="false" />
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#FF3333" />
 
         <Button
             android:id="@+id/btnConfirm"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/btnConfirm"
+            android:background="@color/colorPrimary"
+            android:layout_marginLeft="20px"
             android:textAllCaps="false" />
 
     </LinearLayout>
-
 
 </LinearLayout>

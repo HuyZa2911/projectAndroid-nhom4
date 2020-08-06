@@ -120,6 +120,7 @@
         android:padding="40px">
 
         <Button
+            android:textAllCaps="false"
             android:id="@+id/btnCancel"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -129,6 +130,7 @@
             ></Button>
 
         <Button
+            android:textAllCaps="false"
             android:id="@+id/btnConfirm"
             android:layout_width="0dp"
             android:layout_weight="1"

@@ -9,16 +9,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.quanlykhachsan.R;
+import com.example.quanlykhachsan.models_data.DatPhong;
 import com.example.quanlykhachsan.models_data.KhachHang;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
+public class KhachHangAdapter extends ArrayAdapter<DatPhong> {
     private Context context;
     private int resource;
-    private List<KhachHang> arrCustomer;
-    public KhachHangAdapter(Context context, int resource, ArrayList<KhachHang> arrCustomer) {
+    private List<DatPhong> arrCustomer;
+    public KhachHangAdapter(Context context, int resource, ArrayList<DatPhong> arrCustomer) {
         super(context, resource, arrCustomer);
         this.context = context;
         this.resource = resource;
@@ -51,17 +52,17 @@ public class KhachHangAdapter extends ArrayAdapter<KhachHang> {
         }else {
             viewHold = (ViewHolder) convertView.getTag();
         }
-        KhachHang customer =  arrCustomer.get(position);
+        DatPhong customer =  arrCustomer.get(position);
 
 
         viewHold.lblPhong.setText(String.valueOf(customer.getIdPhong()) );
-        viewHold.lblTen.setText(customer.getHoTen());
+        viewHold.lblTen.setText(customer.getTen());
         viewHold.lblSdt.setText(customer.getSdt());
-        viewHold.lblDiaChi.setText(customer.getDiaChi());
+        viewHold.lblDiaChi.setText("Dai chi");
 //        viewHold.lblLoaiThue.setText(customer.ge());
-        viewHold.lblThoiGianThue.setText(String.valueOf(customer.getSoGioThue()));
-        viewHold.lblNgayTra.setText((CharSequence) customer.getNgayTra());
-        viewHold.lblNgayThue.setText((CharSequence) customer.getNgayThue());
+        viewHold.lblThoiGianThue.setText(String.valueOf(customer.getThoiGianThue()));
+        viewHold.lblNgayTra.setText(customer.getGioTra());
+        viewHold.lblNgayThue.setText(customer.getGioThue());
         return convertView;
 
 
