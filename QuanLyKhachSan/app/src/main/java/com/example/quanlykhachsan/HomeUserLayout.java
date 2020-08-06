@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.quanlykhachsan.fragment.HistoryFragment;
+import com.example.quanlykhachsan.fragment.HomeAdminFragment;
 import com.example.quanlykhachsan.fragment.InformationFragment;
 import com.example.quanlykhachsan.fragment.ListHottelFragment;
 import com.example.quanlykhachsan.fragment.SearchFragment;
@@ -30,13 +31,13 @@ public class HomeUserLayout extends AppCompatActivity {
         setContentView(R.layout.layout_user);
         navMenu = findViewById(R.id.bottom_hotelier_navagition_user);
         layoutFragment = findViewById(R.id.layout_user);
-        swapContentFragment(ListHottelFragment.newInstance(), true, R.id.layout_user);
         setMenuUser();
         intent = getIntent();
         idAcount = intent.getStringExtra("id");
         name = intent.getStringExtra("name");
         phone= intent.getStringExtra("phone");
         email= intent.getStringExtra("email");
+        swapContentFragment(ListHottelFragment.newInstance(idAcount), true, R.id.layout_user);
     }
 
 
@@ -46,7 +47,7 @@ public class HomeUserLayout extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.home:
-                        swapContentFragment(ListHottelFragment.newInstance(), true, R.id.layout_user);
+                        swapContentFragment(ListHottelFragment.newInstance(idAcount), true, R.id.layout_user);
                         return true;
                     case R.id.search:
                         Toast.makeText(HomeUserLayout.this, "Update versition 2.0", Toast.LENGTH_SHORT).show();

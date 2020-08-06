@@ -1,6 +1,7 @@
 package com.example.quanlykhachsan.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.quanlykhachsan.R;
+import com.example.quanlykhachsan.RoomUser;
 import com.example.quanlykhachsan.adpter.ListHottelAdapter;
 import com.example.quanlykhachsan.models_data.KhachSan;
 import com.google.firebase.database.ChildEventListener;
@@ -29,10 +31,12 @@ import java.util.ArrayList;
 public class ListHottelFragment extends Fragment {
     ListView lvListHottel;
     Context context;
+    String idUser;
     final ArrayList<KhachSan> arrKhachsan =new ArrayList<KhachSan>();
-    public static ListHottelFragment newInstance() {
+    public static ListHottelFragment newInstance(String idAcount) {
         Bundle args = new Bundle();
         ListHottelFragment fragment = new ListHottelFragment();
+        args.putString("isUserBooking",idAcount);
         fragment.setArguments(args);
         return fragment;
     }
@@ -42,19 +46,17 @@ public class ListHottelFragment extends Fragment {
         this.context = context;
     }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_hottel, container, false);
         lvListHottel = view.findViewById(R.id.lvListHottel);
-//        KhachSan ks1 = new KhachSan("1","Khách sạn 1","54 Võ văn Ngân Q.Thủ Đức",1,1,1);
-//        KhachSan ks2 = new KhachSan("2","Khách sạn 2","54 Võ văn Ngân Q.Thủ Đức",1,2,2);
-//        KhachSan ks3 = new KhachSan("3","Khách sạn 3","54 Võ văn Ngân Q.Thủ Đức",1,3,3);
-//
-//        arrKhachsan.add(ks1);
-//        arrKhachsan.add(ks2);
-//        arrKhachsan.add(ks3);
 
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        Bundle bundle = getArguments();
+        if (bundle !=null){
+            idUser = bundle.getString("isUserBooking");
+        }
+
+        final DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         database.child("khachsan").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -87,7 +89,10 @@ public class ListHottelFragment extends Fragment {
         lvListHottel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(context,arrKhachsan.get(position).getIdChuKS(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, RoomUser.class);
+                intent.putExtra("idKhachSan",arrKhachsan.get(position).getIdChuKS());
+                intent.putExtra("idUserBooking",idUser);
+                startActivity(intent);
             }
         });
         return view;

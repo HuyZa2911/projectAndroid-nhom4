@@ -5,124 +5,100 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class DatPhong {
-    private int idUser, idKhachSan, idPhong, thoiGianThue, idDatPhong;
-    private TaiKhoan taiKhoan;
+    private String idUser;
+    private String idKhachSan;
+    private String idPhong;
+    private String idHistory;
+    private String gioThue;
+    private String gioTra;
+    private String ten;
+    private String sdt;
+    private String cmnd;
+    private String dayHours;
+    private int loaiDat;
+    private int dTongTien;
+    private int dTienCoc;
     private int trangThai = 0;
-    private Date ngayThue, ngayTra;
-    private Double dTongTien, dTienCoc;
-    private Timestamp thoiGianDat;
+    private int thoiGianThue;
 
-    public int getIdDatPhong() {
-        return idDatPhong;
+    public String getDayHours() {
+        return dayHours;
     }
 
-    public void setIdDatPhong(int idDatPhong) {
-        this.idDatPhong = idDatPhong;
+    public String getTen() {
+        return ten;
     }
 
-    public TaiKhoan getTaiKhoan() {
-        return taiKhoan;
+    public int getLoaiDat() {
+        return loaiDat;
     }
 
-    public void setTaiKhoan(TaiKhoan taiKhoan) {
-        this.taiKhoan = taiKhoan;
+    public String getSdt() {
+        return sdt;
     }
 
-
-    public DatPhong(int idUser, int idKhachSan, int idPhong, int thoiGianThue, int idDatPhong, TaiKhoan taiKhoan, int trangThai, Date ngayThue, Date ngayTra, Double dTongTien, Double dTienCoc, Timestamp thoiGianDat) {
-        this.idUser = idUser;
-        this.idKhachSan = idKhachSan;
-        this.idPhong = idPhong;
-        this.thoiGianThue = thoiGianThue;
-        this.idDatPhong = idDatPhong;
-        this.taiKhoan = taiKhoan;
-        this.trangThai = trangThai;
-        this.ngayThue = ngayThue;
-        this.ngayTra = ngayTra;
-        this.dTongTien = dTongTien;
-        this.dTienCoc = dTienCoc;
-        this.thoiGianDat = thoiGianDat;
+    public String getCmnd() {
+        return cmnd;
     }
 
-    public int getIdUser() {
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
-
-    public int getIdKhachSan() {
+    public String getIdKhachSan() {
         return idKhachSan;
     }
 
-    public void setIdKhachSan(int idKhachSan) {
-        this.idKhachSan = idKhachSan;
-    }
-
-    public int getIdPhong() {
+    public String getIdPhong() {
         return idPhong;
-    }
-
-    public void setIdPhong(int idPhong) {
-        this.idPhong = idPhong;
     }
 
     public int getThoiGianThue() {
         return thoiGianThue;
     }
 
-    public void setThoiGianThue(int thoiGianThue) {
-        this.thoiGianThue = thoiGianThue;
+    public String getIdHistory() {
+        return idHistory;
     }
 
     public int getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(int trangThai) {
-        this.trangThai = trangThai;
+    public String getGioThue() {
+        return gioThue;
     }
 
-    public Date getNgayThue() {
-        return ngayThue;
+    public String getGioTra() {
+        return gioTra;
     }
 
-    public void setNgayThue(Date ngayThue) {
-        this.ngayThue = ngayThue;
-    }
-
-    public Date getNgayTra() {
-        return ngayTra;
-    }
-
-    public void setNgayTra(Date ngayTra) {
-        this.ngayTra = ngayTra;
-    }
-
-    public Double getdTongTien() {
+    public int getdTongTien() {
         return dTongTien;
     }
 
-    public void setdTongTien(Double dTongTien) {
-        this.dTongTien = dTongTien;
-    }
-
-    public Double getdTienCoc() {
+    public int getdTienCoc() {
         return dTienCoc;
     }
 
-    public void setdTienCoc(Double dTienCoc) {
+    public DatPhong(String idUser, String idKhachSan, String idPhong, String idHistory, String gioThue, String gioTra, String ten, String sdt, String cmnd,String dayHours, int loaiDat, int dTongTien, int dTienCoc, int trangThai, int thoiGianThue) {
+        this.idUser = idUser;
+        this.idKhachSan = idKhachSan;
+        this.idPhong = idPhong;
+        this.idHistory = idHistory;
+        this.gioThue = gioThue;
+        this.gioTra = gioTra;
+        this.ten = ten;
+        this.sdt = sdt;
+        this.cmnd = cmnd;
+        this.loaiDat = loaiDat;
+        this.dTongTien = dTongTien;
         this.dTienCoc = dTienCoc;
+        this.trangThai = trangThai;
+        this.thoiGianThue = thoiGianThue;
+        this.dayHours = dayHours;
     }
 
-    public Timestamp getThoiGianDat() {
-        return thoiGianDat;
+    public DatPhong() {
     }
-
-    public void setThoiGianDat(Timestamp thoiGianDat) {
-        this.thoiGianDat = thoiGianDat;
-    }
-
-
 }

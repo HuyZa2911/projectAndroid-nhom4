@@ -91,19 +91,15 @@ public class HomeAdminLayout extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
                         swapContentFragment(HomeAdminFragment.newInstance(idAcount), true, R.id.layout_admin);
-                        Toast.makeText(HomeAdminLayout.this, "home", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.manage_room:
-                        Toast.makeText(HomeAdminLayout.this, "Quản lý phòng", Toast.LENGTH_SHORT).show();
                         swapContentFragment(ListRoomFragment.newInstance(idKS), true, R.id.layout_admin);
                         return true;
                     case R.id.list_wait:
-                        swapContentFragment(ListWaitFragment.newInstance(), true, R.id.layout_admin);
-                        Toast.makeText(HomeAdminLayout.this, "Danh sách chờ", Toast.LENGTH_SHORT).show();
+                        swapContentFragment(ListWaitFragment.newInstance(idKS), true, R.id.layout_admin);
                         return true;
                     case R.id.information:
                         swapContentFragment(InformationFragment.newInstance(name,phone,email), true, R.id.layout_admin);
-                        Toast.makeText(HomeAdminLayout.this, "Thông tin", Toast.LENGTH_SHORT).show();
                         return true;
                     default:
                         break;

@@ -3,6 +3,7 @@ package com.example.quanlykhachsan.models_data;
 public class Phong {
     private String idPhong;
     private String idKhachSan;
+    private String nameRoom;
     private int soGiuong;
     private int loaiPhong;
     private int trangThai;
@@ -25,9 +26,18 @@ public class Phong {
         this.getGiaTienTheoNgay = getGiaTienTheoNgay;
     }
 
-    public Phong(String idPhong, String idKhachSan, int soGiuong, int loaiPhong, int trangThai, int giaTienTheoGio, int getGiaTienTheoNgay) {
+    public String getNameRoom() {
+        return nameRoom;
+    }
+
+    public void setNameRoom(String nameRoom) {
+        this.nameRoom = nameRoom;
+    }
+
+    public Phong(String idPhong, String idKhachSan, String nameRoom , int soGiuong, int loaiPhong, int trangThai, int giaTienTheoGio, int getGiaTienTheoNgay) {
         this.idPhong = idPhong;
         this.idKhachSan = idKhachSan;
+        this.nameRoom = nameRoom;
         this.soGiuong = soGiuong;
         this.loaiPhong = loaiPhong;
         this.trangThai = trangThai;

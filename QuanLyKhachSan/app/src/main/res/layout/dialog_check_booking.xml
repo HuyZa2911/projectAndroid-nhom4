@@ -32,6 +32,7 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/nameRoom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nameRoom"
@@ -72,6 +73,7 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -101,9 +103,10 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
+                            android:id="@+id/edtPhone"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -130,9 +133,10 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
+                            android:id="@+id/cmnd"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -219,6 +223,7 @@
                         android:layout_weight="3">
 
                         <TextView
+                            android:id="@+id/priceDay"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
@@ -250,13 +255,13 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtCheckinDay"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:editable="false"
-                            android:hint="@string/hintSelect"
-                            android:inputType="datetime" />
+                            android:hint="@string/hintSelect" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -283,13 +288,13 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtCheckOutDay"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:editable="false"
-                            android:hint="@string/hintSelect"
-                            android:inputType="datetime" />
+                            android:hint="@string/hintSelect" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -316,9 +321,10 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
+                            android:id="@+id/totalTimeDay"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -354,7 +360,7 @@
                         android:layout_weight="3">
 
                         <TextView
-                            android:id="@+id/priceDay"
+                            android:id="@+id/priceHours"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
@@ -386,13 +392,13 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtDayHours"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/hintSelect"
                             android:clickable="true"
-                            android:editable="false"
-                            android:inputType="datetime" />
+                            android:editable="false" />
 
                     </LinearLayout>
 
@@ -421,9 +427,10 @@
                         android:gravity="center">
 
                         <EditText
+                            style="@style/myborder"
+                            android:id="@+id/totalTimeHours"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -436,6 +443,7 @@
                         android:layout_weight="1">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtTimeIn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -450,6 +458,7 @@
                         android:layout_weight="1">
 
                         <EditText
+                            style="@style/myborder"
                             android:id="@+id/edtTimeOut"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -460,30 +469,6 @@
                     </LinearLayout>
 
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layputOther"
-                style="@style/divideInputBoking"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/lblOther" />
-
-                <ListView
-                    android:id="@+id/lvOther"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    android:paddingLeft="10dp" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_baseline_add" />
             </LinearLayout>
 
             <LinearLayout
@@ -515,8 +500,7 @@
                         <EditText
                             android:enabled="false"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number" />
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
 
@@ -526,6 +510,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/edtPriceRoom"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -546,7 +531,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="@string/lblMonyRoom" />
+                            android:text="Tiền cọc" />
 
                     </LinearLayout>
 
@@ -560,7 +545,7 @@
                             android:enabled="false"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number" />
+                            />
 
                     </LinearLayout>
 
@@ -570,6 +555,7 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/edtTienCoc"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -593,7 +579,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="@string/lblMonyRoom" />
+                                android:text="Tổng tiền" />
 
                         </LinearLayout>
 
@@ -617,6 +603,7 @@
                             android:layout_weight="1">
 
                             <TextView
+                                android:id="@+id/edtPriceTotal"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
@@ -632,20 +619,26 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:gravity="center">
+        android:gravity="center"
+        android:padding="40px">
 
         <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:text="@string/btnCancel"
-            android:textAllCaps="false" />
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#FF3333" />
 
         <Button
-            android:id="@+id/btnPayMoney"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnConfirm"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/btnPayMoney"
+            android:background="@color/colorPrimary"
+            android:layout_marginLeft="20px"
             android:textAllCaps="false" />
 
     </LinearLayout>

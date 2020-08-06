@@ -52,6 +52,7 @@ public class LayoutRegistration extends AppCompatActivity {
         btnSignUp = findViewById(R.id.btnConfirm);
         btnCancel = findViewById(R.id.btnCancel);
 
+        clickCancel();
 
         database.child("account").addValueEventListener(new ValueEventListener() {
             @Override
@@ -129,5 +130,13 @@ public class LayoutRegistration extends AppCompatActivity {
             }
         });
 
+    }
+    private void clickCancel(){
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }

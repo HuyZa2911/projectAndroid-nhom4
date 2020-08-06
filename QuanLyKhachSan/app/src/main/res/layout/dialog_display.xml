@@ -5,8 +5,20 @@
     android:id="@+id/linearMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="15dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
 
+        <ImageView
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_cancel" />
+
+    </LinearLayout>
     <TextView
         android:id="@+id/tvMaSoPhong"
         android:layout_width="match_parent"
@@ -100,29 +112,6 @@
             />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1">
-
-        <TextView
-            android:id="@+id/tvDiaChi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="Địa Chỉ: "
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/edDiaChi"
-            style="@style/myborder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="160dp"
-            android:layout_weight="0.5"
-            android:inputType="number" />
-    </LinearLayout>
 
 
     <LinearLayout
@@ -152,14 +141,13 @@
                 style="@style/myborder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.1"
-                android:inputType="textPersonName" />
+                android:layout_weight="1.1" />
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="51dp"
             android:layout_weight="1">
 
             <TextView
@@ -167,7 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:text="Số: "
+                android:text="Thời gian: "
                 android:textStyle="bold" />
 
             <EditText
@@ -175,13 +163,36 @@
                 style="@style/myborder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.1"
-                android:inputType="number" />
+                android:layout_weight="1.1" />
         </LinearLayout>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/lvBookingHours"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1">
 
+        <TextView
+            android:id="@+id/tvNgay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Ngày thuê: "
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edNgay"
+            style="@style/myborder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="160dp"
+            android:layout_weight="0.5"
+            android:inputType="number" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -192,7 +203,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:text="Ngày thuê phòng:"
+            android:text="Giờ thuê:"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -204,11 +215,12 @@
             android:layout_weight="1.5"
             android:orientation="horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/tvNgayDatPhong"
+                style="@style/myborder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5" />
+                android:layout_weight="1.1" />
 
             <ImageView
                 style="@style/myborder"
@@ -233,7 +245,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:text="Ngày trả phòng:"
+            android:text="Giờ trả:"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -245,11 +257,12 @@
             android:layout_weight="1.5"
             android:orientation="horizontal">
 
-            <TextView
+            <EditText
                 android:id="@+id/tvNgayTraPhong"
+                style="@style/myborder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5" />
+                android:layout_weight="1.1"/>
 
             <ImageView
                 style="@style/myborder"
@@ -294,20 +307,23 @@
         android:orientation="horizontal">
 
         <Button
-            style="@style/myborder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="@string/btnCancel"
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
             android:layout_weight="1"
-            android:background="@color/colorBlue"
-            android:text="Hủy" />
+            android:layout_height="wrap_content"
+            android:background="#FF3333" />
 
         <Button
-            style="@style/myborder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnConfirm"
+            android:layout_width="0dp"
             android:layout_weight="1"
-            android:background="@color/colorOrange"
-            android:text="Xác Nhận" />
+            android:layout_height="wrap_content"
+            android:text="@string/btnConfirm"
+            android:background="@color/colorPrimary"
+            android:layout_marginLeft="20px"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 </LinearLayout>

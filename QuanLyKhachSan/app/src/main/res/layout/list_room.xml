@@ -6,54 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/PhongThuong"
-            style="@style/myborder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-
-            android:text="P.Thường"
-            android:background="@color/cardview_dark_background"
-            />
-
-        <Button
-            android:id="@+id/PhongVid"
-            style="@style/myborder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="P.Vid"
-            android:background="@color/cardview_dark_background"
-            />
-
-        <Button
-            android:id="@+id/PhongTrong"
-            style="@style/myborder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="P.Vid"
-            android:background="@color/cardview_dark_background"
-            />
-
-        <Button
-            android:id="@+id/PhongDaDat"
-            style="@style/myborder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="P.Trống"
-            android:background="@color/cardview_dark_background"
-            />
-
-    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcListRoom"

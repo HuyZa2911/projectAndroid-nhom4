@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,11 +15,11 @@ import com.example.quanlykhachsan.R;
 
 import java.util.ArrayList;
 
-public class PhongAdapter extends RecyclerView.Adapter<PhongAdapter.MyViewHolder> {
+public class UserListHottelAdapter extends RecyclerView.Adapter<UserListHottelAdapter.MyViewHolder> {
 
     private ArrayList<Phong> list;
     private Context context;
-    public PhongAdapter(ArrayList<Phong> dataRoom) {
+    public UserListHottelAdapter(ArrayList<Phong> dataRoom) {
         this.list = dataRoom;
     }
 
@@ -57,16 +56,12 @@ public class PhongAdapter extends RecyclerView.Adapter<PhongAdapter.MyViewHolder
         viewHolder.txtnameRoom.setText(aCard.getNameRoom());
         viewHolder.txtGiaTheoGio.setText(aCard.getGiaTienTheoGio()+"đ/h");
         viewHolder.txtGiaTheoNgay.setText(aCard.getGetGiaTienTheoNgay()+"đ/ngày");
-        if (aCard.getTrangThai() == 1){
+        if (aCard.getTrangThai() == 0){
+            viewHolder.txtTinhTrang.setText("Phòng trống");
+        }else{
             viewHolder.txtTinhTrang.setTextColor(ContextCompat.getColor(context,R.color.text_red));
             viewHolder.background_item_rom.setBackground(ContextCompat.getDrawable(context,R.drawable.layout_item_romm));
             viewHolder.txtTinhTrang.setText("Đang thuê");
-        }else if(aCard.getTrangThai() == 2){
-            viewHolder.txtTinhTrang.setTextColor(ContextCompat.getColor(context,R.color.text_yellow));
-            viewHolder.background_item_rom.setBackground(ContextCompat.getDrawable(context,R.drawable.layout_cho_duyet));
-            viewHolder.txtTinhTrang.setText("Chờ duyệt");
-        }else{
-            viewHolder.txtTinhTrang.setText("Phòng trống");
         }
     }
 

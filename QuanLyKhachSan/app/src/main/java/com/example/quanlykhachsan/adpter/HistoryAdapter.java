@@ -61,7 +61,11 @@ public class HistoryAdapter extends ArrayAdapter<History> {
             viewHold.lblStatus.setTextColor(ContextCompat.getColor(context,R.color.textFinish));
             viewHold.lblStatus.setText("HOÀN THÀNH");
         }
-        if (history.getStatus() == 1) {
+        if (history.getStatus() == 1){
+            viewHold.lblStatus.setTextColor(ContextCompat.getColor(context,R.color.colorBlue));
+            viewHold.lblStatus.setText("CHỜ DUYỆT");
+        }
+        if (history.getStatus() == 2) {
             viewHold.lblStatus.setTextColor(ContextCompat.getColor(context,R.color.textCanel));
             viewHold.lblStatus.setText("HỦY");
         }

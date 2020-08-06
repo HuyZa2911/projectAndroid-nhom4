@@ -31,23 +31,27 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.quanlykhachsan.R;
+import com.example.quanlykhachsan.TestDialog;
 import com.example.quanlykhachsan.adpter.PhongAdapter;
+import com.example.quanlykhachsan.adpter.UserListHottelAdapter;
 import com.example.quanlykhachsan.models_data.DatPhong;
+import com.example.quanlykhachsan.models_data.History;
+import com.example.quanlykhachsan.models_data.KhachSan;
 import com.example.quanlykhachsan.models_data.Phong;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class ListRoomFragment extends Fragment {
+public class UserListHottelFragment extends Fragment {
     RecyclerView rcListRoom;
     Context context;
-    String idChuKS;
     LinearLayout selectionBookingDay;
     LinearLayout selectionBookingHours;
     RadioButton radioBookingDay;
@@ -56,21 +60,21 @@ public class ListRoomFragment extends Fragment {
     Button btnCancel;
     Button btnConfirm;
     EditText edtCheckinDay, edtChekoutDay, edtDayHours, edtTimeIn, edtTimeOut,edtName,edtPhone,edcmnd,totalTimeDay, totalTimeHours;
-    TextView edtPriceDay,edtPriceHours,edtPriceTotal,edtTienCoc,edtPriceRoom;
     TextView nameRoom,tvPriceDay,tvPriceHours;
     ImageView btnClose;
-    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-
-    String idKhachSan,ten,sdt,cmnd,gioTra,gioDat,priceDay,priceHours,idRoom,dayHours,idBooking;
+    String idKhachSan,ten,sdt,cmnd,gioTra,gioDat,priceDay,priceHours,idRoom,dayHours,time,nameHottel,diaChiKS;
     int loaiDat,price,totalTime;
+    String idChuKS,idUser;
 
+    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     final ArrayList<Phong> dataRoom = new ArrayList<Phong>();
-    public static ListRoomFragment newInstance(String idKS) {
+    public static UserListHottelFragment newInstance(String idKS, String idUser) {
         Bundle args = new Bundle();
-        ListRoomFragment fragment = new ListRoomFragment();
+        UserListHottelFragment fragment = new UserListHottelFragment();
         args.putString("idKS",idKS);
+        args.putString("idUser",idUser);
         fragment.setArguments(args);
         return fragment;
     }
@@ -88,25 +92,59 @@ public class ListRoomFragment extends Fragment {
         Bundle bundle = getArguments();
         if (bundle !=null) {
             idChuKS = bundle.getString("idKS");
+            idUser = bundle.getString("idUser");
         }
         rcListRoom = view.findViewById(R.id.rcListRoom);
         readData(idChuKS);
         setonClick();
         return view;
     }
-
+    private String id;
     final void readData(final String idKS){
+
+        database.child("khachsan").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                KhachSan ks = snapshot.getValue(KhachSan.class);
+                if(ks.getIdChuKS().equals(idKS)){
+                    id = snapshot.getKey();
+                    nameHottel= ks.getTenKS();
+                    diaChiKS = ks.getDiaChi();
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         database.child("Phong").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Phong p = snapshot.getValue(Phong.class);
                 String idPhong = snapshot.getKey();
-                if (p.getIdKhachSan().equals(idKS)){
+                if (p.getIdKhachSan().equals(id)){
                     dataRoom.add(new Phong(idPhong,p.getIdKhachSan(),"ads",p.getSoGiuong(),p.getLoaiPhong(),p.getTrangThai(),p.getGiaTienTheoGio(),p.getGetGiaTienTheoNgay()));
                 }
                 LinearLayoutManager layoutManager = new GridLayoutManager(context,2);
                 rcListRoom.setLayoutManager(layoutManager);
-                PhongAdapter listRoom = new PhongAdapter(dataRoom);
+                UserListHottelAdapter listRoom = new UserListHottelAdapter(dataRoom);
                 rcListRoom.setAdapter(listRoom);
             }
 
@@ -134,8 +172,11 @@ public class ListRoomFragment extends Fragment {
     private void setonClick(){
         rcListRoom.addOnItemTouchListener(
                 new RecyclerItemClickListener(context, rcListRoom ,new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, final int position) {
+                    @Override public void onItemClick(View view, int position) {
                         if(dataRoom.get(position).getTrangThai()==0){
+
+                            DialogBooking();
+                            nameRoom.setText(dataRoom.get(position).getNameRoom());
 
                             DialogBooking();
                             priceDay = String.valueOf(dataRoom.get(position).getGetGiaTienTheoNgay());
@@ -146,71 +187,8 @@ public class ListRoomFragment extends Fragment {
                             tvPriceDay.setText(priceDay);
                             tvPriceHours.setText(priceHours);
                         }
-                        else if(dataRoom.get(position).getTrangThai() == 1){
-                            DialogCheckBooking();
-                            idRoom = dataRoom.get(position).getIdPhong();
-                            nameRoom.setText(dataRoom.get(position).getNameRoom());
-                            database.child("BookingRoom").addChildEventListener(new ChildEventListener() {
-                                @Override
-                                public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                                    DatPhong dt = snapshot.getValue(DatPhong.class);
-                                    if (dataRoom.get(position).getIdPhong().equals(dt.getIdPhong()) && dt.getTrangThai() == 1){
-                                        idBooking = snapshot.getKey();
-                                        edtName.setText(dt.getTen());
-                                        edtPhone.setText(dt.getSdt());
-                                        edcmnd.setText(dt.getCmnd());
-                                        edtTienCoc.setText(String.valueOf(dt.getdTienCoc()));
-                                        edtPriceTotal.setText(String.valueOf(dt.getdTongTien()));
-                                        if (dt.getLoaiDat()==1){
-//                                            Booking day
-                                            radioBookingDay.setChecked(true);
-                                            radioBookingHours.setChecked(false);
-                                            selectionBookingHours.setVisibility(View.GONE);
-                                            selectionBookingDay.setVisibility(View.VISIBLE);
-                                            edtCheckinDay.setText(dt.getGioThue());
-                                            edtChekoutDay.setText(dt.getGioTra());
-                                            edtPriceRoom.setText(String.valueOf(dataRoom.get(position).getGetGiaTienTheoNgay()));
-                                            edtPriceDay.setText(String.valueOf(dataRoom.get(position).getGetGiaTienTheoNgay()));
-                                            totalTimeDay.setText(String.valueOf(dt.getThoiGianThue()));
-                                        }
-                                        if(dt.getLoaiDat() == 0){
-//                                            Booking hours
-                                            radioBookingHours.setChecked(true);
-                                            radioBookingDay.setChecked(false);
-                                            selectionBookingDay.setVisibility(View.GONE);
-                                            selectionBookingHours.setVisibility(View.VISIBLE);
-                                            edtTimeIn.setText(dt.getGioThue());
-                                            edtTimeOut.setText(dt.getGioTra());
-                                            edtPriceRoom.setText(String.valueOf(dataRoom.get(position).getGiaTienTheoGio()));
-                                            edtPriceHours.setText(String.valueOf(dataRoom.get(position).getGiaTienTheoGio()));
-                                            totalTimeHours.setText(String.valueOf(dt.getThoiGianThue()));
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                }
-
-                                @Override
-                                public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                                }
-
-                                @Override
-                                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                }
-                            });
-                        }
-                        else if(dataRoom.get(position).getTrangThai() == 2){
-                            showDialogCho();
+                        else {
+                           Toast.makeText(context,"Phòng này đã được thuê",Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -243,7 +221,6 @@ public class ListRoomFragment extends Fragment {
         tvPriceDay = dialog.findViewById(R.id.priceDay);
         tvPriceHours = dialog.findViewById(R.id.priceHours);
         ClickButton(dialog);
-
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -259,6 +236,7 @@ public class ListRoomFragment extends Fragment {
                     totalTime = Integer.parseInt(totalTimeDay.getText().toString());
                     dayHours = "null";
                     loaiDat = 1;
+                    time = gioDat + " - " + gioTra;
                 }
                 if(radioBookingHours.isChecked()){
                     price = Integer.parseInt(priceHours);
@@ -267,9 +245,11 @@ public class ListRoomFragment extends Fragment {
                     totalTime = Integer.parseInt(totalTimeHours.getText().toString());
                     dayHours = edtDayHours.getText().toString();
                     loaiDat =0;
+                    time = gioDat+" - "+gioTra+" "+dayHours;
                 }
-                database.child("BookingRoom").push().setValue(new DatPhong("Admin",idKhachSan,idRoom,null,gioDat,gioTra,ten,sdt,cmnd,dayHours,loaiDat,price,0,1,totalTime));
-                database.child("Phong").child(idRoom).child("trangThai").setValue(1);
+                database.child("BookingRoom").push().setValue(new DatPhong(idUser,idKhachSan,idRoom,null,gioDat,gioTra,ten,sdt,cmnd,dayHours,loaiDat,price,0,2,totalTime));
+                database.child("History").push().setValue(new History(idUser,time,nameHottel,diaChiKS,String.valueOf(price),1));
+                database.child("Phong").child(idRoom).child("trangThai").setValue(2);
 //                database.child("BookingRoom").push().setValue(new DatPhong("asd","asd","asd","asd","sad","asd", "asd","asd","sad",2,3,4,1,2));
 
                 dialog.dismiss();
@@ -372,116 +352,6 @@ public class ListRoomFragment extends Fragment {
         };
     }
 
-    private void showDialogCho(){
-        final Dialog dialog = new Dialog(context, R.style.MyAlertDialogTheme);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_display);
-
-
-
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
-        dialog.show();
-    }
-
-// đã đặt phòng
-    private void DialogCheckBooking() {
-        final Dialog dialog = new Dialog(context, R.style.Widget_AppCompat_ActionBar_Solid);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_check_booking);
-        radioBookingDay = dialog.findViewById(R.id.radioBookingDay);
-        radioBookingHours = dialog.findViewById(R.id.radioBookingHours);
-        selectionBookingDay = dialog.findViewById(R.id.bookingDay);
-        selectionBookingHours = dialog.findViewById(R.id.bookingHours);
-        radioGroup = dialog.findViewById(R.id.rdgButton);
-        edtCheckinDay = dialog.findViewById(R.id.edtCheckinDay);
-        edtChekoutDay = dialog.findViewById(R.id.edtCheckOutDay);
-        edtDayHours = dialog.findViewById(R.id.edtDayHours);
-        edtTimeIn = dialog.findViewById(R.id.edtTimeIn);
-        edtTimeOut = dialog.findViewById(R.id.edtTimeOut);
-        nameRoom = dialog.findViewById(R.id.nameRoom);
-        edtName = dialog.findViewById(R.id.edtName);
-        edtPhone = dialog.findViewById(R.id.edtPhone);
-        edcmnd = dialog.findViewById(R.id.cmnd);
-        totalTimeHours = dialog.findViewById(R.id.totalTimeHours);
-        totalTimeDay = dialog.findViewById(R.id.totalTimeDay);
-        edtPriceDay = dialog.findViewById(R.id.priceDay);
-        edtPriceHours = dialog.findViewById(R.id.priceHours);
-        edtTienCoc = dialog.findViewById(R.id.edtTienCoc);
-        edtPriceRoom = dialog.findViewById(R.id.edtPriceRoom);
-        edtPriceTotal = dialog.findViewById(R.id.edtPriceTotal);
-        ClickButton(dialog);
-
-        edtName.setEnabled(false);
-        edcmnd.setEnabled(false);
-        edtPhone.setEnabled(false);
-        edtCheckinDay.setEnabled(false);
-        edtChekoutDay.setEnabled(false);
-        edtTimeIn.setEnabled(false);
-        edtTimeOut.setEnabled(false);
-        edtDayHours.setEnabled(false);
-        totalTimeDay.setEnabled(false);
-        totalTimeHours.setEnabled(false);
-
-        btnConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                database.child("Phong").child(idRoom).child("trangThai").setValue(0);
-                database.child("BookingRoom").child(idBooking).child("trangThai").setValue(0);
-                dialog.dismiss();
-                Toast.makeText(context , "Thanh toán thành công",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-//        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                View radioButton = radioGroup.findViewById(checkedId);
-//                int index = radioGroup.indexOfChild(radioButton);
-//                switch (index) {
-//                    case 0:
-//                        selectionBookingHours.setVisibility(View.GONE);
-//                        selectionBookingDay.setVisibility(View.VISIBLE);
-//                        break;
-//                    case 1:
-//                        selectionBookingDay.setVisibility(View.GONE);
-//                        selectionBookingHours.setVisibility(View.VISIBLE);
-//                        break;
-//                }
-//            }
-//        });
-//        edtCheckinDay.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SeclectDay(edtCheckinDay);
-//            }
-//        });
-//        edtChekoutDay.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SeclectDay(edtChekoutDay);
-//            }
-//        });
-//        edtDayHours.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SeclectDay(edtDayHours);
-//            }
-//        });
-//        TODO: select time in and select time out
-//        edtTimeIn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SelectTime(edtTimeIn);
-//            }
-//        });
-//        edtTimeOut.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SelectTime(edtTimeOut);
-//            }
-//        });
-        dialog.show();
-    }
 
     private void SelectTime(final EditText timeInput) {
         timeInput.setOnClickListener(new View.OnClickListener() {
