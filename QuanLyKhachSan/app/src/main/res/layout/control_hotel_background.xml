@@ -11,7 +11,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY"
+
             android:src="@mipmap/ing_test"></ImageView>
     </LinearLayout>
 
@@ -24,7 +24,8 @@
             android:orientation="vertical"
             card:cardBackgroundColor="#f5f5f5"
             card:cardCornerRadius="4dp"
-            card:cardElevation="7dp">
+            card:cardElevation="7dp"
+           >
 
             <LinearLayout
                 android:layout_width="match_parent"
