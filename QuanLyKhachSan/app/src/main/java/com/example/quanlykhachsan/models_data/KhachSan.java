@@ -4,15 +4,26 @@ public class KhachSan {
     private String idChuKS;
     private String tenKS;
     private String diaChi;
-    private int nuberRoom;
+    private String giaTheoNgay;
+    private String giaTheoGio;
+    private int numberRoom;
     private int phone;
+    private int loaiKS;
+
+    public String getGiaTheoNgay() {
+        return giaTheoNgay;
+    }
+
+    public String getGiaTheoGio() {
+        return giaTheoGio;
+    }
 
     public int getNuberRoom() {
-        return nuberRoom;
+        return numberRoom;
     }
 
     public void setNuberRoom(int nuberRoom) {
-        this.nuberRoom = nuberRoom;
+        this.numberRoom = nuberRoom;
     }
 
     public int getPhone() {
@@ -23,7 +34,6 @@ public class KhachSan {
         this.phone = phone;
     }
 
-    private int loaiKS;
 
     public String getIdChuKS() {
         return idChuKS;
@@ -60,12 +70,14 @@ public class KhachSan {
     public KhachSan() {
     }
 
-    public KhachSan(String idChuKS, String tenKS, String diaChi, int loaiKS,int phone,int numberRoom) {
+    public KhachSan(String idChuKS, String tenKS, String diaChi, String giaTheoNgay, String giaTheoGio, int nuberRoom, int phone, int loaiKS) {
         this.idChuKS = idChuKS;
         this.tenKS = tenKS;
         this.diaChi = diaChi;
-        this.loaiKS = loaiKS;
+        this.giaTheoNgay = giaTheoNgay;
+        this.giaTheoGio = giaTheoGio;
+        this.numberRoom = nuberRoom;
         this.phone = phone;
-        this.nuberRoom =numberRoom;
+        this.loaiKS = loaiKS;
     }
 }

@@ -64,7 +64,7 @@ public class UserListHottelFragment extends Fragment {
     ImageView btnClose;
     String idKhachSan,ten,sdt,cmnd,gioTra,gioDat,priceDay,priceHours,idRoom,dayHours,time,nameHottel,diaChiKS;
     int loaiDat,price,totalTime;
-    String idChuKS,idUser;
+    String idChuKS,idUser,tenPhong;
 
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -140,7 +140,7 @@ public class UserListHottelFragment extends Fragment {
                 Phong p = snapshot.getValue(Phong.class);
                 String idPhong = snapshot.getKey();
                 if (p.getIdKhachSan().equals(id)){
-                    dataRoom.add(new Phong(idPhong,p.getIdKhachSan(),"ads",p.getSoGiuong(),p.getLoaiPhong(),p.getTrangThai(),p.getGiaTienTheoGio(),p.getGetGiaTienTheoNgay()));
+                    dataRoom.add(new Phong(idPhong,p.getIdKhachSan(),p.getNameRoom(),p.getSoGiuong(),p.getLoaiPhong(),p.getTrangThai(),p.getGiaTienTheoGio(),p.getGetGiaTienTheoNgay()));
                 }
                 LinearLayoutManager layoutManager = new GridLayoutManager(context,2);
                 rcListRoom.setLayoutManager(layoutManager);
@@ -186,6 +186,7 @@ public class UserListHottelFragment extends Fragment {
                             nameRoom.setText(dataRoom.get(position).getNameRoom());
                             tvPriceDay.setText(priceDay);
                             tvPriceHours.setText(priceHours);
+                            tenPhong = dataRoom.get(position).getNameRoom();
                         }
                         else {
                            Toast.makeText(context,"Phòng này đã được thuê",Toast.LENGTH_SHORT).show();
@@ -247,7 +248,7 @@ public class UserListHottelFragment extends Fragment {
                     loaiDat =0;
                     time = gioDat+" - "+gioTra+" "+dayHours;
                 }
-                database.child("BookingRoom").push().setValue(new DatPhong(idUser,idKhachSan,idRoom,null,gioDat,gioTra,ten,sdt,cmnd,dayHours,loaiDat,price,0,2,totalTime));
+                database.child("BookingRoom").push().setValue(new DatPhong(idUser,idKhachSan,idRoom,null,gioDat,gioTra,ten,sdt,cmnd,dayHours,loaiDat,price,0,2,totalTime,tenPhong));
                 database.child("History").push().setValue(new History(idUser,time,nameHottel,diaChiKS,String.valueOf(price),1));
                 database.child("Phong").child(idRoom).child("trangThai").setValue(2);
 //                database.child("BookingRoom").push().setValue(new DatPhong("asd","asd","asd","asd","sad","asd", "asd","asd","sad",2,3,4,1,2));

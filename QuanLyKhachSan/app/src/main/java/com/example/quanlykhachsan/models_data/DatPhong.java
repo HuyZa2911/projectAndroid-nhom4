@@ -15,11 +15,16 @@ public class DatPhong {
     private String sdt;
     private String cmnd;
     private String dayHours;
+    private String tenPhong;
     private int loaiDat;
     private int dTongTien;
     private int dTienCoc;
     private int trangThai = 0;
     private int thoiGianThue;
+
+    public String getTenPhong() {
+        return tenPhong;
+    }
 
     public String getDayHours() {
         return dayHours;
@@ -81,7 +86,7 @@ public class DatPhong {
         return dTienCoc;
     }
 
-    public DatPhong(String idUser, String idKhachSan, String idPhong, String idHistory, String gioThue, String gioTra, String ten, String sdt, String cmnd,String dayHours, int loaiDat, int dTongTien, int dTienCoc, int trangThai, int thoiGianThue) {
+    public DatPhong(String idUser, String idKhachSan, String idPhong, String idHistory, String gioThue, String gioTra, String ten, String sdt, String cmnd,String dayHours, int loaiDat, int dTongTien, int dTienCoc, int trangThai, int thoiGianThue,String tenPhong) {
         this.idUser = idUser;
         this.idKhachSan = idKhachSan;
         this.idPhong = idPhong;
@@ -97,6 +102,7 @@ public class DatPhong {
         this.trangThai = trangThai;
         this.thoiGianThue = thoiGianThue;
         this.dayHours = dayHours;
+        this.tenPhong = tenPhong;
     }
 
     public DatPhong() {

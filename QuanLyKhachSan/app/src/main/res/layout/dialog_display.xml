@@ -16,7 +16,8 @@
             android:id="@+id/btnClose"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_baseline_cancel" />
+            android:src="@drawable/ic_baseline_cancel"
+            />
 
     </LinearLayout>
     <TextView
@@ -222,13 +223,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.1" />
 
-            <ImageView
-                style="@style/myborder"
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:layout_weight="3"
-                android:scaleType="centerCrop"
-                android:src="@drawable/icon_calender" />
         </LinearLayout>
 
     </LinearLayout>
@@ -264,13 +258,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.1"/>
 
-            <ImageView
-                style="@style/myborder"
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:layout_weight="3"
-                android:scaleType="centerCrop"
-                android:src="@drawable/icon_calender" />
         </LinearLayout>
 
     </LinearLayout>

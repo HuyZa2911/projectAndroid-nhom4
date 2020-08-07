@@ -55,7 +55,7 @@ public class KhachHangAdapter extends ArrayAdapter<DatPhong> {
         DatPhong customer =  arrCustomer.get(position);
 
 
-        viewHold.lblPhong.setText(String.valueOf(customer.getIdPhong()) );
+        viewHold.lblPhong.setText(customer.getTenPhong());
         viewHold.lblTen.setText(customer.getTen());
         viewHold.lblSdt.setText(customer.getSdt());
         viewHold.lblDiaChi.setText("Dai chi");
