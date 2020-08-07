@@ -106,7 +106,7 @@ public class ListWaitFragment extends Fragment {
                 DatPhong dt = snapshot.getValue(DatPhong.class);
                 if (dt.getIdKhachSan().equals(idKS) && dt.getTrangThai() == 2){
                     arrHistory.add(snapshot.getKey());
-                    arrKhachHang.add(new DatPhong(dt.getIdUser(),dt.getIdKhachSan(),dt.getIdPhong(),dt.getIdHistory(),dt.getGioThue(),dt.getGioTra(),dt.getTen(),dt.getSdt(),dt.getCmnd(),dt.getDayHours(),dt.getLoaiDat(),dt.getdTongTien(),dt.getdTienCoc(),dt.getTrangThai(),dt.getThoiGianThue()));
+                    arrKhachHang.add(new DatPhong(dt.getIdUser(),dt.getIdKhachSan(),dt.getIdPhong(),dt.getIdHistory(),dt.getGioThue(),dt.getGioTra(),dt.getTen(),dt.getSdt(),dt.getCmnd(),dt.getDayHours(),dt.getLoaiDat(),dt.getdTongTien(),dt.getdTienCoc(),dt.getTrangThai(),dt.getThoiGianThue(),dt.getTenPhong()));
                 }
                 KhachHangAdapter khachHangAdapter = new KhachHangAdapter(context,R.layout.fragment_item_list_wait,arrKhachHang);
 
@@ -138,7 +138,7 @@ public class ListWaitFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 showDialog();
 
-                tvMaSoPhong.setText(arrKhachHang.get(position).getIdKhachSan());
+                tvMaSoPhong.setText(arrKhachHang.get(position).getTenPhong());
                 edName.setText(arrKhachHang.get(position).getTen());
                 edCMND.setText(arrKhachHang.get(position).getCmnd());
                 edSo.setText(String.valueOf(arrKhachHang.get(position).getThoiGianThue()));
@@ -244,7 +244,7 @@ public class ListWaitFragment extends Fragment {
                                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                                         History hs = snapshot.getValue(History.class);
                                         if(hs.getIdUser().equals(idUser) && hs.getStatus()== 1){
-                                            database.child("History").child(snapshot.getKey()).child("status").setValue(1);
+                                            database.child("History").child(snapshot.getKey()).child("status").setValue(2);
                                         }
                                     }
 
@@ -277,7 +277,7 @@ public class ListWaitFragment extends Fragment {
             }
         });
 
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
+         dialog.getWindow().setLayout(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
         dialog.show();
     }
 }

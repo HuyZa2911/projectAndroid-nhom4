@@ -490,9 +490,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:gravity="center"
-        android:padding="40px">
-
+        android:gravity="center">
         <Button
             android:textAllCaps="false"
             android:text="@string/btnCancel"

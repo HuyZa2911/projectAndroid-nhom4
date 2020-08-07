@@ -61,7 +61,7 @@ public class ListHottelFragment extends Fragment {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 KhachSan ks = snapshot.getValue(KhachSan.class);
-                arrKhachsan.add(new KhachSan(ks.getIdChuKS(),ks.getTenKS(),ks.getDiaChi(),ks.getLoaiKS(),ks.getPhone(),ks.getNuberRoom()));
+                arrKhachsan.add(new KhachSan(ks.getIdChuKS(),ks.getTenKS(),ks.getDiaChi(),ks.getGiaTheoNgay(),ks.getGiaTheoGio(),ks.getNuberRoom(),ks.getPhone(),ks.getLoaiKS()));
                 ListHottelAdapter hottelAdapter =  new ListHottelAdapter(context,R.layout.fragment_item_hottel,arrKhachsan);
                 lvListHottel.setAdapter(hottelAdapter);
             }

@@ -61,7 +61,7 @@ public class ListRoomFragment extends Fragment {
     ImageView btnClose;
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
-    String idKhachSan,ten,sdt,cmnd,gioTra,gioDat,priceDay,priceHours,idRoom,dayHours,idBooking;
+    String idKhachSan,ten,sdt,cmnd,gioTra,gioDat,priceDay,priceHours,idRoom,dayHours,idBooking,tenPhong;
     int loaiDat,price,totalTime;
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -102,7 +102,7 @@ public class ListRoomFragment extends Fragment {
                 Phong p = snapshot.getValue(Phong.class);
                 String idPhong = snapshot.getKey();
                 if (p.getIdKhachSan().equals(idKS)){
-                    dataRoom.add(new Phong(idPhong,p.getIdKhachSan(),"ads",p.getSoGiuong(),p.getLoaiPhong(),p.getTrangThai(),p.getGiaTienTheoGio(),p.getGetGiaTienTheoNgay()));
+                    dataRoom.add(new Phong(idPhong,p.getIdKhachSan(),p.getNameRoom(),p.getSoGiuong(),p.getLoaiPhong(),p.getTrangThai(),p.getGiaTienTheoGio(),p.getGetGiaTienTheoNgay()));
                 }
                 LinearLayoutManager layoutManager = new GridLayoutManager(context,2);
                 rcListRoom.setLayoutManager(layoutManager);
@@ -150,6 +150,7 @@ public class ListRoomFragment extends Fragment {
                             DialogCheckBooking();
                             idRoom = dataRoom.get(position).getIdPhong();
                             nameRoom.setText(dataRoom.get(position).getNameRoom());
+                            tenPhong = dataRoom.get(position).getNameRoom();
                             database.child("BookingRoom").addChildEventListener(new ChildEventListener() {
                                 @Override
                                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -210,7 +211,7 @@ public class ListRoomFragment extends Fragment {
                             });
                         }
                         else if(dataRoom.get(position).getTrangThai() == 2){
-                            showDialogCho();
+                            Toast.makeText(context,"Phòng này đang chờ duyệt",Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -268,7 +269,7 @@ public class ListRoomFragment extends Fragment {
                     dayHours = edtDayHours.getText().toString();
                     loaiDat =0;
                 }
-                database.child("BookingRoom").push().setValue(new DatPhong("Admin",idKhachSan,idRoom,null,gioDat,gioTra,ten,sdt,cmnd,dayHours,loaiDat,price,0,1,totalTime));
+                database.child("BookingRoom").push().setValue(new DatPhong("Admin",idKhachSan,idRoom,null,gioDat,gioTra,ten,sdt,cmnd,dayHours,loaiDat,price,0,1,totalTime,tenPhong));
                 database.child("Phong").child(idRoom).child("trangThai").setValue(1);
 //                database.child("BookingRoom").push().setValue(new DatPhong("asd","asd","asd","asd","sad","asd", "asd","asd","sad",2,3,4,1,2));
 
@@ -372,20 +373,10 @@ public class ListRoomFragment extends Fragment {
         };
     }
 
-    private void showDialogCho(){
-        final Dialog dialog = new Dialog(context, R.style.MyAlertDialogTheme);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_display);
-
-
-
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
-        dialog.show();
-    }
-
-// đã đặt phòng
+    Dialog dialog;
+    // đã đặt phòng
     private void DialogCheckBooking() {
-        final Dialog dialog = new Dialog(context, R.style.Widget_AppCompat_ActionBar_Solid);
+        dialog = new Dialog(context, R.style.Widget_AppCompat_ActionBar_Solid);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_check_booking);
         radioBookingDay = dialog.findViewById(R.id.radioBookingDay);

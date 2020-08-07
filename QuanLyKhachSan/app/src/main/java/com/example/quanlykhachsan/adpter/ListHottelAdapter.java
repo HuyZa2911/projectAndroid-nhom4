@@ -52,9 +52,9 @@ public class ListHottelAdapter extends ArrayAdapter<KhachSan> {
         viewHold.lblNameHottel.setText(dataHottel.getTenKS());
         viewHold.lblPhoneHottel.setText(String.valueOf(dataHottel.getPhone()));
         viewHold.lblAddress.setText(dataHottel.getDiaChi());
-        viewHold.ratingBar.setRating(3);
-        viewHold.lblPriceBookingDay.setText("123123");
-        viewHold.lblPriceBookingHours.setText("3454353");
+        viewHold.ratingBar.setRating(dataHottel.getLoaiKS());
+        viewHold.lblPriceBookingDay.setText(dataHottel.getGiaTheoNgay());
+        viewHold.lblPriceBookingHours.setText(dataHottel.getGiaTheoGio());
         return convertView;
     }
 }
